@@ -45,16 +45,16 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "echo 'husky hooks' && lint-staged"
     }
   },
   "lint-staged": {
     "*.js": [
-      "echo starting!",
+      "echo 'starting!'",
       "eslint --fix",
       "prettier --config .prettierrc --write",
       "git add",
-      "echo finished!"
+      "echo 'finished!'"
     ]
   }
 }
