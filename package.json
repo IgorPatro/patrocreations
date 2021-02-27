@@ -8,10 +8,8 @@
     "gatsby"
   ],
   "lint-staged": {
-    "src/**/*.{js,jsx}": [
-      "eslint . --fix",
-      "git add"
-    ]
+    "*.js": "eslint --fix",
+    "*.{js,css,md}": "prettier --write"
   },
   "husky": {
     "hooks": {
