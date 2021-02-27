@@ -39,22 +39,6 @@
     "eslint-plugin-jsx-a11y": "6.4.1",
     "eslint-plugin-react": "7.21.5",
     "eslint-plugin-react-hooks": "1.7.0",
-    "husky": "^5.1.1",
-    "lint-staged": "^10.5.4",
     "prettier": "^2.2.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "echo 'husky hooks' && lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "echo 'starting!'",
-      "eslint --fix",
-      "prettier --config .prettierrc --write",
-      "git add",
-      "echo 'finished!'"
-    ]
   }
 }
