@@ -7,15 +7,6 @@
   "keywords": [
     "gatsby"
   ],
-  "lint-staged": {
-    "*.js": "eslint --fix",
-    "*.{js,css,md}": "prettier --write"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby clean && gatsby develop",
@@ -51,5 +42,17 @@
     "husky": "^5.1.1",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --config .prettierrc --write",
+      "git add"
+    ]
   }
 }
