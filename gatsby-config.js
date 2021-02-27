@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "patrocreations",
+    title: "Patrocreations",
   },
   plugins: [
     "gatsby-plugin-sass",
@@ -29,4 +29,4 @@ module.exports = {
       __key: "images",
     },
   ],
-};
+}
