@@ -50,9 +50,11 @@
   },
   "lint-staged": {
     "*.js": [
+      "echo starting!",
       "eslint --fix",
       "prettier --config .prettierrc --write",
-      "git add"
+      "git add",
+      "echo finished!"
     ]
   }
 }
