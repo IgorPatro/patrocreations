@@ -1,4 +1,8 @@
+// eslint-disable-next-line no-unused-vars
+const dotenv = require("dotenv").config()
+
 module.exports = {
+  flags: { PRESERVE_WEBPACK_CACHE: true },
   siteMetadata: {
     title: "Patrocreations",
   },
@@ -7,7 +11,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
-        trackingId: "G-K32DE4GK5M",
+        trackingId: process.env.REACT_APP_ANALYTICS_TRACKING_ID,
       },
     },
     "gatsby-plugin-sharp",

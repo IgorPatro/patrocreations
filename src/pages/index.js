@@ -1,7 +1,5 @@
-import * as React from "react"
+import React from "react"
 
-const IndexPage = () => {
-  return <h1>Hello World!</h1>
-}
+const IndexPage = () => <h1>Hello World!</h1>
 
 export default IndexPage
