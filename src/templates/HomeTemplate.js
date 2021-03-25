@@ -1,15 +1,14 @@
 import React from "react"
 import PropTypes from "prop-types"
-import "./globalStyles.scss"
+import "./globalStyles.css"
 
-import styles from "./homeTemplate.module.scss"
 
 const HomeTemplate = ({ children }) => (
   <>
-    <div className={styles.homeWrapper}>
-      <div className={styles.navigation}>navigation</div>
+    <div>
+      <div>navigation</div>
       <div>{children}</div>
-      <div className={styles.contact}>contact</div>
+      <div>contact</div>
     </div>
   </>
 )

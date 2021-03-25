@@ -5,10 +5,10 @@ module.exports = {
   flags: { PRESERVE_WEBPACK_CACHE: true },
   siteMetadata: {
     title: "Patrocreations",
-    siteUrl: "https://patrocreations.com"
+    siteUrl: "https://patrocreations.com",
   },
   plugins: [
-    "gatsby-plugin-sass",
+    `gatsby-plugin-emotion`,
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
