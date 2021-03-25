@@ -22,8 +22,6 @@
     "gatsby-plugin-sitemap": "^2.12.0",
     "gatsby-source-filesystem": "^2.11.1",
     "gatsby-transformer-sharp": "^2.12.0",
-    "husky": "^5.2.0",
-    "lint-staged": "^10.5.4",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -46,10 +44,5 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
 }
