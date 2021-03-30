@@ -34,6 +34,13 @@ module.exports = {
         // usePreconnect: false,
       },
     },
+    {
+      resolve: `gatsby-source-datocms`,
+      options: {
+        apiToken: process.env.REACT_APP_DATOCMS_API_TOKEN,
+        disableLiveReload: true,
+      },
+    },
     `gatsby-plugin-emotion`,
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
@@ -61,6 +68,7 @@ module.exports = {
         templates: path.join(__dirname, "src/templates"),
         components: path.join(__dirname, "src/components"),
         assets: path.join(__dirname, "src/assets"),
+        layout: path.join(__dirname, "src/layout"),
       },
     },
   ],

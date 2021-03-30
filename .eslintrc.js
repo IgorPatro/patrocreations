@@ -14,6 +14,7 @@ module.exports = {
         ["components", "./src/components"],
         ["pages", "./src/pages"],
         ["templates", "./src/templates"],
+        ["layout", "./src/layout"],
       ],
     },
   },
