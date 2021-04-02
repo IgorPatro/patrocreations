@@ -1,9 +1,9 @@
 const breakpoints = {
-  phone: 374,
-  tablet: 767,
+  phone: 375,
+  tablet: 768,
   bigTablet: 1020,
   desktop: 1200,
-  bigDesktop: 1439,
+  bigDesktop: 1440,
   huge: 1700,
 }
 
@@ -11,6 +11,7 @@ const theme = {
   colors: {
     black: "#000000",
     white: "#ffffff",
+    blue: "#0240B9",
   },
   fontFamily: {
     JetBrainsMono: "'JetBrains Mono', monospace",
@@ -24,12 +25,12 @@ const theme = {
     black: 900,
   },
   mediaQueries: {
-    phone: `(min-width: ${breakpoints.phone}px)`,
-    tablet: `(min-width: ${breakpoints.tablet}px)`,
-    bigTablet: `(min-width: ${breakpoints.bigTablet}px)`,
-    desktop: `(min-width: ${breakpoints.desktop}px)`,
-    bigDesktop: `(min-width: ${breakpoints.bigDesktop}px)`,
-    huge: `(min-width: ${breakpoints.huge}px)`,
+    phone: `@media (min-width: ${breakpoints.phone}px)`,
+    tablet: `@media (min-width: ${breakpoints.tablet}px)`,
+    bigTablet: `@media (min-width: ${breakpoints.bigTablet}px)`,
+    desktop: `@media (min-width: ${breakpoints.desktop}px)`,
+    bigDesktop: `@media (min-width: ${breakpoints.bigDesktop}px)`,
+    huge: `@media (min-width: ${breakpoints.huge}px)`,
   },
 }
 

@@ -5,6 +5,7 @@ module.exports = {
   extends: ["airbnb", "airbnb/hooks", "prettier"],
   rules: {
     "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
+    "react/no-danger": 0,
   },
   settings: {
     "import/resolver": {

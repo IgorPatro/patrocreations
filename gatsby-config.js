@@ -38,10 +38,11 @@ module.exports = {
       resolve: `gatsby-source-datocms`,
       options: {
         apiToken: process.env.REACT_APP_DATOCMS_API_TOKEN,
-        disableLiveReload: true,
+        disableLiveReload: false, // change later
       },
     },
     `gatsby-plugin-emotion`,
+    `gatsby-transformer-remark`,
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
@@ -53,12 +54,11 @@ module.exports = {
     },
     "gatsby-transformer-sharp",
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: "assets",
-        path: "./src/assets/",
+        name: `images`,
+        path: "./src/assets/images",
       },
-      __key: "assets",
     },
     {
       resolve: "gatsby-plugin-root-import",
