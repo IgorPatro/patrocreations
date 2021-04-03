@@ -6,6 +6,7 @@ import "./globalStyles.css"
 import theme from "layout/theme"
 import HomeTemplate from "templates/HomeTemplate"
 import SubpageTemplate from "templates/SubpageTemplate"
+import Navigation from "components/Navigation"
 
 const MainLayout = ({ template, children }) => (
   <ThemeProvider theme={theme}>
@@ -14,6 +15,7 @@ const MainLayout = ({ template, children }) => (
     ) : (
       <SubpageTemplate>{children}</SubpageTemplate>
     )}
+    <Navigation />
   </ThemeProvider>
 )
 

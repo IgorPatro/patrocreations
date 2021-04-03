@@ -12,6 +12,7 @@ const theme = {
     black: "#000000",
     white: "#ffffff",
     blue: "#0240B9",
+    grey: "#666666",
   },
   fontFamily: {
     JetBrainsMono: "'JetBrains Mono', monospace",

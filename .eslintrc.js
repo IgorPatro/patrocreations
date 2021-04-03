@@ -16,6 +16,7 @@ module.exports = {
         ["pages", "./src/pages"],
         ["templates", "./src/templates"],
         ["layout", "./src/layout"],
+        ["data", "./src/data"],
       ],
     },
   },
