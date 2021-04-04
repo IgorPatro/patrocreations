@@ -15,44 +15,39 @@ const mainStyles = css`
 `
 
 const wrapperStyles = (theme) => css`
-  width: calc(100vw - 45px);
-  height: calc(100vh - 45px);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  padding: 20px;
+  height: 100%;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
 
   ${theme.mediaQueries.phone} {
-    width: calc(100vw - 55px);
-    height: calc(100vh - 55px);
+    padding: 27px;
   }
 
   ${theme.mediaQueries.tablet} {
-    width: calc(100vw - 100px);
-    height: calc(100vh - 100px);
+    padding: 50px;
   }
 
   ${theme.mediaQueries.bigTablet} {
-    width: calc(100vw - 150px);
-    height: calc(100vh - 150px);
+    padding: 75px;
   }
 
   ${theme.mediaQueries.huge} {
-    width: calc(100vw - 230px);
-    height: calc(100vh - 230px);
+    padding: 115px;
   }
 `
 
-const navigationStyles = css`
-  position: absolute;
-  top: 0;
-  left: 0;
+const navigationStyles = (theme) => css`
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 20;
+
+  ${theme.mediaQueries.desktop} {
+    z-index: 0;
+  }
 `
 
 const logoStyles = (theme) => css`
@@ -68,9 +63,6 @@ const logoStyles = (theme) => css`
 `
 
 const contactStyles = (theme) => css`
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
   font-size: 1.2rem;
   display: flex;
@@ -140,7 +132,7 @@ const decorationCircleStyles = (theme) => css`
   }
 `
 
-const HomeTemplate = ({ children }) => {
+const HomeTemplate = ({ children, toggleNavigationFunc, isNavigationOpen }) => {
   const { datoCmsBasicInformation } = useStaticQuery(graphql`
     query HomeTemplateBasicInformationsQuery {
       datoCmsBasicInformation {
@@ -157,7 +149,10 @@ const HomeTemplate = ({ children }) => {
     <main css={mainStyles}>
       <div css={wrapperStyles}>
         <div css={navigationStyles}>
-          <HamburgerButton />
+          <HamburgerButton
+            toggleNavigationFunc={toggleNavigationFunc}
+            isNavigationOpen={isNavigationOpen}
+          />
           <img src={LogoWhite} alt="Logo strony" css={logoStyles} />
         </div>
         {children}
@@ -195,6 +190,10 @@ const HomeTemplate = ({ children }) => {
   )
 }
 
-HomeTemplate.propTypes = { children: PropTypes.node.isRequired }
+HomeTemplate.propTypes = {
+  children: PropTypes.node.isRequired,
+  toggleNavigationFunc: PropTypes.func.isRequired,
+  isNavigationOpen: PropTypes.bool.isRequired,
+}
 
 export default HomeTemplate
