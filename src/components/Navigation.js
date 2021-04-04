@@ -45,6 +45,10 @@ const navigationWrapperStyles = (theme) => css`
     padding: 90px;
   }
 
+  ${theme.mediaQueries.huge} {
+    padding: 130px;
+  }
+
   &.active {
     transform: translateX(0);
   }
@@ -98,6 +102,11 @@ const listItemStyles = (theme) => css`
 
   a {
     color: white;
+    transition: color 0.3s;
+
+    &:hover {
+      color: ${theme.colors.blue};
+    }
   }
 
   &::after {
@@ -150,9 +159,19 @@ const emailLinkStyles = (theme) => css`
   bottom: 90px;
   right: 90px;
   color: white;
+  transition: color 0.3s;
 
   ${theme.mediaQueries.desktop} {
     display: block;
+  }
+
+  ${theme.mediaQueries.huge} {
+    bottom: 130px;
+    right: 130px;
+  }
+
+  &:hover {
+    color: ${theme.colors.blue};
   }
 `
 
