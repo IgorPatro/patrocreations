@@ -1,5 +1,6 @@
 import * as React from "react"
 import { css } from "@emotion/react"
+import PropTypes from "prop-types"
 
 const buttonStyles = (theme) => css`
   padding: 0;
@@ -10,6 +11,7 @@ const buttonStyles = (theme) => css`
   border: none;
   display: flex;
   align-items: center;
+  outline: none;
 
   ${theme.mediaQueries.tablet} {
     width: 55px;
@@ -68,18 +70,22 @@ const buttonArmStyles = css`
   }
 `
 
-const HamburgerButton = () => {
-  const [isNavigationOpen, setIsNavigationOpen] = React.useState(false)
+const HamburgerButton = ({ toggleNavigationFunc, isNavigationOpen }) => (
+  <button
+    type="button"
+    css={buttonStyles}
+    onClick={() => toggleNavigationFunc(!isNavigationOpen)}
+  >
+    <div
+      css={buttonArmStyles}
+      className={isNavigationOpen ? "active" : "disabled"}
+    />
+  </button>
+)
 
-  return (
-    <button
-      type="button"
-      css={buttonStyles}
-      onClick={() => setIsNavigationOpen(!isNavigationOpen)}
-    >
-      <div css={buttonArmStyles} className={isNavigationOpen && "active"} />
-    </button>
-  )
+HamburgerButton.propTypes = {
+  toggleNavigationFunc: PropTypes.func.isRequired,
+  isNavigationOpen: PropTypes.bool.isRequired,
 }
 
 export default HamburgerButton
