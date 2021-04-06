@@ -190,7 +190,7 @@ const Navigation = ({ isNavigationOpen, turnOffNavigationFunc }) => {
   `)
 
   return (
-    <div
+    <nav
       css={navigationWrapperStyles}
       className={isNavigationOpen ? "active" : "disabled"}
     >
@@ -236,7 +236,7 @@ const Navigation = ({ isNavigationOpen, turnOffNavigationFunc }) => {
         alt="decoration circle in navigation menu"
         css={decorationCircleStyles}
       />
-    </div>
+    </nav>
   )
 }
 

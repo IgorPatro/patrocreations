@@ -22,7 +22,12 @@ const MainLayout = ({ template, children }) => {
           {children}
         </HomeTemplate>
       ) : (
-        <SubpageTemplate>{children}</SubpageTemplate>
+        <SubpageTemplate
+          toggleNavigationFunc={setIsNavigationOpen}
+          isNavigationOpen={isNavigationOpen}
+        >
+          {children}
+        </SubpageTemplate>
       )}
       <Navigation
         isNavigationOpen={isNavigationOpen}
