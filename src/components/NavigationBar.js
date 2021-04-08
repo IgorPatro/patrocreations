@@ -1,20 +1,37 @@
 import React from "react"
 import { css } from "@emotion/react"
 import PropTypes from "prop-types"
+import { Link } from "gatsby"
 
 import HamburgerButton from "components/HamburgerButton"
 import LogoWhite from "assets/logo-white.svg"
+import routes from "data/routes"
+
+const displayByWindowSize = (
+  displayMethodForPhones,
+  displayMethodForDesktops,
+  theme
+) => css`
+  display: ${displayMethodForPhones};
+
+  ${theme.mediaQueries.desktop} {
+    display: ${displayMethodForDesktops};
+  }
+`
 
 const navigationBarStyles = (theme) => css`
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   z-index: 20;
 
   ${theme.mediaQueries.desktop} {
     z-index: 0;
   }
+`
+
+const phoneVersionStyles = (theme) => css`
+  ${displayByWindowSize("flex", "none", theme)}
+  justify-content: space-between;
+  align-items: center;
 `
 
 const logoStyles = (theme) => css`
@@ -29,13 +46,46 @@ const logoStyles = (theme) => css`
   }
 `
 
+const desktopVersionStyles = (theme) => css`
+  ${displayByWindowSize("none", "flex", theme)}
+
+  justify-content: flex-end;
+  font-size: 1.5rem;
+  padding: 30px;
+
+  ul {
+    display: flex;
+    list-style: none;
+
+    li {
+      margin-left: 20px;
+
+      a {
+        color: ${theme.colors.light};
+        text-decoration: none;
+      }
+    }
+  }
+`
+
 const NavigationBar = ({ toggleNavigationFunc, isNavigationOpen }) => (
   <div css={navigationBarStyles}>
-    <img css={logoStyles} src={LogoWhite} alt="Logo strony" />
-    <HamburgerButton
-      toggleNavigationFunc={toggleNavigationFunc}
-      isNavigationOpen={isNavigationOpen}
-    />
+    <div css={phoneVersionStyles}>
+      <img css={logoStyles} src={LogoWhite} alt="Logo strony" />
+      <HamburgerButton
+        toggleNavigationFunc={toggleNavigationFunc}
+        isNavigationOpen={isNavigationOpen}
+      />
+    </div>
+    <div css={desktopVersionStyles}>
+      <ul>
+        {routes.map((route) => (
+          <li key={route.name}>
+            <Link to={route.path}>{route.name}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   </div>
 )
 

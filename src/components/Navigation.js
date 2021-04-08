@@ -182,7 +182,7 @@ const Navigation = ({ isNavigationOpen, turnOffNavigationFunc }) => {
         socialMedia {
           linkName
           linkHref
-          linkDescription
+          linkNavigationDescription
         }
         email
       }
@@ -202,7 +202,11 @@ const Navigation = ({ isNavigationOpen, turnOffNavigationFunc }) => {
         />
         <ul css={listStyles}>
           {routes.map((route) => (
-            <ListItem css={listItemStyles} afterContent={route.description}>
+            <ListItem
+              css={listItemStyles}
+              afterContent={route.description}
+              key={route.name}
+            >
               <Link to={route.path}>{route.name}</Link>
             </ListItem>
           ))}
@@ -212,7 +216,8 @@ const Navigation = ({ isNavigationOpen, turnOffNavigationFunc }) => {
         {datoCmsBasicInformation.socialMedia.map((socialMedium) => (
           <ListItem
             css={listItemStyles}
-            afterContent={socialMedium.linkDescription}
+            afterContent={socialMedium.linkNavigationDescription}
+            key={socialMedium.linkName}
           >
             <a
               href={socialMedium.linkHref}

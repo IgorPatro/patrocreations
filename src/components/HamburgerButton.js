@@ -12,6 +12,7 @@ const buttonStyles = (theme) => css`
   display: flex;
   align-items: center;
   outline: none;
+  transition: opacity 0.3s;
 
   ${theme.mediaQueries.tablet} {
     width: 55px;
@@ -36,7 +37,7 @@ const buttonArmStyles = css`
     content: "";
     width: 60%;
     height: 100%;
-    background-color: white;
+    background-color: inherit;
     position: absolute;
     transition: all 0.3s;
   }
