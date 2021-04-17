@@ -1,8 +1,8 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React from "react"
 import { css } from "@emotion/react"
 import PropTypes from "prop-types"
 
-import HamburgerButton from "components/HamburgerButton"
 import LogoWhite from "assets/logo-white.svg"
 
 const navigationAsideStyles = (theme) => css`
@@ -35,24 +35,72 @@ const navigationAsideStyles = (theme) => css`
   }
 `
 
-const NavigationAside = ({ toggleNavigationFunc, isNavigationOpen }) => (
-  <div css={navigationAsideStyles}>
-    <img src={LogoWhite} alt="Logo of the site" />
-    <HamburgerButton
-      small
-      toggleNavigationFunc={toggleNavigationFunc}
-      isNavigationOpen={isNavigationOpen}
-    />
-    <p>
-      I am a front-end <br />
-      developer by passion
-    </p>
-  </div>
-)
+const menuButtonStyles = (theme) => css`
+  background-color: transparent;
+  border: none;
+  width: 40px;
+  height: 30px;
+  position: relative;
+  transition: opacity 0.3s;
+
+  &::before,
+  &::after {
+    content: "";
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    background-color: ${theme.colors.light};
+  }
+
+  &::before {
+    transform: translateY(150%);
+  }
+
+  &::after {
+    transform: translateY(-150%);
+  }
+
+  &.disabled {
+    opacity: 0;
+  }
+
+  &.active {
+    opacity: 1;
+  }
+`
+
+const NavigationAside = ({ toggleNavigationFunc }) => {
+  const [windowPageYOffset, setWindowPageYOffset] = React.useState(0)
+
+  React.useEffect(() => {
+    if (window !== undefined) {
+      window.addEventListener("scroll", () => {
+        setWindowPageYOffset(window.pageYOffset)
+      })
+    }
+  }, [])
+
+  return (
+    <div css={navigationAsideStyles}>
+      <img src={LogoWhite} alt="Logo of the site" />
+      <button
+        type="button"
+        css={menuButtonStyles}
+        onClick={() => toggleNavigationFunc(true)}
+        className={windowPageYOffset > 50 ? "active" : "disabled"}
+      />
+      <p>
+        I am a front-end <br />
+        developer by passion
+      </p>
+    </div>
+  )
+}
 
 NavigationAside.propTypes = {
   toggleNavigationFunc: PropTypes.func.isRequired,
-  isNavigationOpen: PropTypes.bool.isRequired,
 }
 
 export default NavigationAside

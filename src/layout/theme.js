@@ -14,6 +14,8 @@ const theme = {
     blue: "#1B57CB",
     grey: "#666666",
     light: "#BBBBBB",
+    dark: "#252525",
+    gold: "#C5B358",
   },
   fontFamily: {
     JetBrainsMono: "'JetBrains Mono', monospace",

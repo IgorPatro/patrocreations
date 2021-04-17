@@ -32,6 +32,20 @@ const phoneVersionStyles = (theme) => css`
   ${displayByWindowSize("flex", "none", theme)}
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  background-color: ${theme.colors.gold};
+
+  ${theme.mediaQueries.tablet} {
+    padding: 30px;
+  }
+
+  ${theme.mediaQueries.bigTablet} {
+    padding: 50px;
+  }
 `
 
 const logoStyles = (theme) => css`
@@ -48,10 +62,17 @@ const logoStyles = (theme) => css`
 
 const desktopVersionStyles = (theme) => css`
   ${displayByWindowSize("none", "flex", theme)}
-
   justify-content: flex-end;
   font-size: 1.5rem;
   padding: 30px;
+
+  ${theme.mediaQueries.bigDesktop} {
+    font-size: 1.7rem;
+  }
+
+  ${theme.mediaQueries.huge} {
+    font-size: 1.8rem;
+  }
 
   ul {
     display: flex;
@@ -63,6 +84,11 @@ const desktopVersionStyles = (theme) => css`
       a {
         color: ${theme.colors.light};
         text-decoration: none;
+        transition: color 0.3s;
+
+        &:hover {
+          color: ${theme.colors.blue};
+        }
       }
     }
   }

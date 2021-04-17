@@ -37,7 +37,7 @@ const buttonArmStyles = css`
     content: "";
     width: 60%;
     height: 100%;
-    background-color: inherit;
+    background-color: white;
     position: absolute;
     transition: all 0.3s;
   }

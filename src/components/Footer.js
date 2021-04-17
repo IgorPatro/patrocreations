@@ -17,11 +17,23 @@ const footerStyles = (theme) => css`
 
   ${theme.mediaQueries.bigTablet} {
     font-size: 3.7rem;
+    padding: 0 0 30px 30px;
   }
 
   ${theme.mediaQueries.desktop} {
     margin: 0 20px 80px 100px;
     font-size: 3.2rem;
+    padding: 0;
+  }
+
+  ${theme.mediaQueries.bigDesktop} {
+    margin: 0 50px 100px 150px;
+    font-size: 3.7rem;
+  }
+
+  ${theme.mediaQueries.huge} {
+    margin: 0 50px 120px 200px;
+    font-size: 4rem;
   }
 
   h5 {
@@ -66,6 +78,14 @@ const footerLinksStyles = (theme) => css`
     margin-top: 40px;
   }
 
+  ${theme.mediaQueries.bigDesktop} {
+    width: 900px;
+  }
+
+  ${theme.mediaQueries.huge} {
+    width: 1000px;
+  }
+
   div {
     display: flex;
     flex-direction: column;
@@ -85,6 +105,10 @@ const footerLinksStyles = (theme) => css`
       font-weight: ${theme.fontWeight.medium};
       font-style: normal;
       line-height: 1.1em;
+
+      ${theme.mediaQueries.bigDesktop} {
+        font-size: 0.4em;
+      }
     }
   }
 `
@@ -108,6 +132,10 @@ const decorationCircleStyles = (theme) => css`
 
   ${theme.mediaQueries.tablet} {
     display: block;
+  }
+
+  ${theme.mediaQueries.bigDesktop} {
+    height: 120%;
   }
 `
 

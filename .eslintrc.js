@@ -1,6 +1,8 @@
 module.exports = {
   globals: {
     __PATH_PREFIX__: true,
+    window: true,
+    document: true,
   },
   extends: ["airbnb", "airbnb/hooks", "prettier"],
   rules: {

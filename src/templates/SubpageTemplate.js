@@ -18,20 +18,20 @@ const mainStyles = (theme) => css`
 `
 
 const innerWrapperStyles = (theme) => css`
-  padding: 20px;
+  padding: 50px 20px 20px 20px;
   display: flex;
   flex-direction: column;
 
   ${theme.mediaQueries.phone} {
-    padding: 25px 30px 25px;
+    padding: 65px 30px 25px;
   }
 
   ${theme.mediaQueries.tablet} {
-    padding: 40px;
+    padding: 90px 40px 40px 40px;
   }
 
   ${theme.mediaQueries.bigTablet} {
-    padding: 50px;
+    padding: 120px 40px 40px 40px;
   }
 
   ${theme.mediaQueries.desktop} {
@@ -59,10 +59,7 @@ const SubpageTemplate = ({
   isNavigationOpen,
 }) => (
   <main css={mainStyles}>
-    <NavigationAside
-      toggleNavigationFunc={toggleNavigationFunc}
-      isNavigationOpen={isNavigationOpen}
-    />
+    <NavigationAside toggleNavigationFunc={toggleNavigationFunc} />
     <div css={innerWrapperStyles}>
       <NavigationBar
         toggleNavigationFunc={toggleNavigationFunc}
