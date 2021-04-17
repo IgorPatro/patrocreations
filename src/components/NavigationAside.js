@@ -41,7 +41,6 @@ const menuButtonStyles = (theme) => css`
   width: 40px;
   height: 30px;
   position: relative;
-  transition: opacity 0.3s;
 
   &::before,
   &::after {
@@ -61,43 +60,22 @@ const menuButtonStyles = (theme) => css`
   &::after {
     transform: translateY(-150%);
   }
-
-  &.disabled {
-    opacity: 0;
-  }
-
-  &.active {
-    opacity: 1;
-  }
 `
 
-const NavigationAside = ({ toggleNavigationFunc }) => {
-  const [windowPageYOffset, setWindowPageYOffset] = React.useState(0)
-
-  React.useEffect(() => {
-    if (window !== undefined) {
-      window.addEventListener("scroll", () => {
-        setWindowPageYOffset(window.pageYOffset)
-      })
-    }
-  }, [])
-
-  return (
-    <div css={navigationAsideStyles}>
-      <img src={LogoWhite} alt="Logo of the site" />
-      <button
-        type="button"
-        css={menuButtonStyles}
-        onClick={() => toggleNavigationFunc(true)}
-        className={windowPageYOffset > 50 ? "active" : "disabled"}
-      />
-      <p>
-        I am a front-end <br />
-        developer by passion
-      </p>
-    </div>
-  )
-}
+const NavigationAside = ({ toggleNavigationFunc }) => (
+  <div css={navigationAsideStyles}>
+    <img src={LogoWhite} alt="Logo of the site" />
+    <button
+      type="button"
+      css={menuButtonStyles}
+      onClick={() => toggleNavigationFunc(true)}
+    />
+    <p>
+      I am a front-end <br />
+      developer by passion
+    </p>
+  </div>
+)
 
 NavigationAside.propTypes = {
   toggleNavigationFunc: PropTypes.func.isRequired,
