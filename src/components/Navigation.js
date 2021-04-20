@@ -18,7 +18,8 @@ const navigationWrapperStyles = (theme) => css`
   padding: 100px 30px 30px;
   z-index: 10;
   transform: translateX(-100%);
-  transition: transform 0.5s;
+  opacity: 0;
+  transition: transform 0.7s, opacity 0.7s;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -51,6 +52,7 @@ const navigationWrapperStyles = (theme) => css`
 
   &.active {
     transform: translateX(0);
+    opacity: 1;
   }
 `
 
@@ -91,14 +93,12 @@ const listStyles = css`
   list-style: none;
 `
 
-const getAfterContent = ({ afterContent }) => ({
-  content: `"${afterContent}"`,
-})
-
 const listItemStyles = (theme) => css`
   line-height: 1.5em;
   text-decoration: underline;
   position: relative;
+  transform: translate(-10px, 30px);
+  opacity: 0;
 
   a {
     color: white;
@@ -122,9 +122,29 @@ const listItemStyles = (theme) => css`
   }
 `
 
+const loadLinks = keyframes`
+  from {
+    transform: translate(-10px, 30px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+`
+
 const ListItem = styled.li`
   &::after {
-    ${getAfterContent}
+    content: ${({ afterContent }) => `"${afterContent}"`};
+  }
+
+  &.active {
+    animation: ${({ index, animationStartPoint }) =>
+      css`
+        ${loadLinks} 0.3s ease-in-out ${animationStartPoint +
+        0.2 * index}s forwards
+      `};
+    color: ${({ index }) => `#${index}`};
   }
 `
 
@@ -201,11 +221,14 @@ const Navigation = ({ isNavigationOpen, turnOffNavigationFunc }) => {
           onClick={turnOffNavigationFunc}
         />
         <ul css={listStyles}>
-          {routes.map((route) => (
+          {routes.map((route, index) => (
             <ListItem
               css={listItemStyles}
               afterContent={route.description}
               key={route.name}
+              className={isNavigationOpen ? "active" : "disabled"}
+              index={index}
+              animationStartPoint={0.5}
             >
               <Link to={route.path}>{route.name}</Link>
             </ListItem>
@@ -213,11 +236,14 @@ const Navigation = ({ isNavigationOpen, turnOffNavigationFunc }) => {
         </ul>
       </div>
       <ul css={listStyles}>
-        {datoCmsBasicInformation.socialMedia.map((socialMedium) => (
+        {datoCmsBasicInformation.socialMedia.map((socialMedium, index) => (
           <ListItem
             css={listItemStyles}
             afterContent={socialMedium.linkNavigationDescription}
             key={socialMedium.linkName}
+            className={isNavigationOpen ? "active" : "disabled"}
+            index={index}
+            animationStartPoint={1.5}
           >
             <a
               href={socialMedium.linkHref}

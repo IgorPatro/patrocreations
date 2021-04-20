@@ -4,6 +4,7 @@ import { css } from "@emotion/react"
 
 import MainLayout from "layout/MainLayout"
 import PageHeader from "components/PageHeader"
+import SEO from "components/SEO"
 import AboutParagraph from "components/AboutParagraph"
 
 const additionalPadding = (theme) => css`
@@ -51,17 +52,20 @@ const AboutPage = () => {
   `)
 
   return (
-    <MainLayout>
-      <PageHeader data={datoCmsAboutPage.pageHeader} />
-      <div css={additionalPadding}>
-        {datoCmsAboutPage.aboutParagraphs.map((aboutParagraph, index) => (
-          <AboutParagraph
-            key={aboutParagraph.id}
-            content={{ ...aboutParagraph, index }}
-          />
-        ))}
-      </div>
-    </MainLayout>
+    <>
+      <SEO pageName="About" />
+      <MainLayout>
+        <PageHeader data={datoCmsAboutPage.pageHeader} />
+        <div css={additionalPadding}>
+          {datoCmsAboutPage.aboutParagraphs.map((aboutParagraph, index) => (
+            <AboutParagraph
+              key={aboutParagraph.id}
+              content={{ ...aboutParagraph, index }}
+            />
+          ))}
+        </div>
+      </MainLayout>
+    </>
   )
 }
 export default AboutPage

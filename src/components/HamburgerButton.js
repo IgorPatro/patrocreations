@@ -73,6 +73,7 @@ const buttonArmStyles = css`
 
 const HamburgerButton = ({ toggleNavigationFunc, isNavigationOpen }) => (
   <button
+    aria-label="Menu button"
     type="button"
     css={buttonStyles}
     onClick={() => toggleNavigationFunc(!isNavigationOpen)}

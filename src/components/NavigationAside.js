@@ -16,7 +16,7 @@ const navigationAsideStyles = (theme) => css`
   height: 100vh;
   width: 110px;
   padding: 20px;
-  border-right: 1px solid ${theme.colors.light};
+  border-right: 1px solid ${theme.colors.grey};
   color: ${theme.colors.light};
   font-size: 1.3rem;
 
@@ -38,15 +38,15 @@ const navigationAsideStyles = (theme) => css`
 const menuButtonStyles = (theme) => css`
   background-color: transparent;
   border: none;
-  width: 40px;
-  height: 30px;
+  width: 30px;
+  height: 25px;
   position: relative;
 
   &::before,
   &::after {
     content: "";
     width: 100%;
-    height: 4px;
+    height: 3px;
     position: absolute;
     left: 0;
     top: 50%;

@@ -1,11 +1,25 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { css } from "@emotion/react"
+import { css, keyframes } from "@emotion/react"
+
+const loadHeading = keyframes`
+  from {
+    transform: translateY(10%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`
 
 const headerWrapperStyles = (theme) => css`
   font-size: 3rem;
   margin-top: 1.2em;
   width: 90%;
+  transform: translateY(10%);
+  opacity: 0;
+  animation: ${loadHeading} 1s ease-in-out 1s forwards;
 
   ${theme.mediaQueries.phone} {
     font-size: 3.3rem;

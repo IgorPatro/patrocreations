@@ -1,7 +1,24 @@
 import React from "react"
 import Img from "gatsby-image"
 import PropTypes from "prop-types"
-import { css } from "@emotion/react"
+import { css, keyframes } from "@emotion/react"
+import styled from "@emotion/styled"
+
+const loadPortfolioProject = keyframes`
+  from {
+    transform: translateY(10%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`
+
+const StyledPortfolioProject = styled.a`
+  animation: ${loadPortfolioProject} 1s ease-in-out
+    ${({ index }) => 1 + index * 0.5}s forwards;
+`
 
 const wrapperStyles = (theme) => css`
   font-size: 1.9rem;
@@ -9,6 +26,8 @@ const wrapperStyles = (theme) => css`
   text-decoration: none;
   cursor: pointer;
   transition: transform 0.3s;
+  transform: translateY(10%);
+  opacity: 0;
 
   ${theme.mediaQueries.tablet} {
     font-size: 2.3rem;
@@ -23,8 +42,6 @@ const wrapperStyles = (theme) => css`
   }
 
   &:hover {
-    transform: scale(1.05);
-
     h2 {
       color: ${theme.colors.blue};
     }
@@ -74,20 +91,21 @@ const imageStyles = css`
 `
 
 const PortfolioProject = ({ data }) => (
-  <a
+  <StyledPortfolioProject
     css={wrapperStyles}
     href={data.url}
     rel="noopener noreferrer nofollow"
     target="_blank"
+    index={data.index}
   >
     <Img css={imageStyles} fluid={data.image.fluid} alt={data.image.alt} />
     <h4>{data.hashtag}</h4>
     <h2>{data.title}</h2>
-  </a>
+  </StyledPortfolioProject>
 )
 
 PortfolioProject.propTypes = {
-  data: PropTypes.objectOf(PropTypes.string).isRequired,
+  data: PropTypes.objectOf(PropTypes.string || PropTypes.object).isRequired,
 }
 
 export default PortfolioProject

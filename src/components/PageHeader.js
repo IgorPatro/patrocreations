@@ -1,6 +1,17 @@
 import React from "react"
-import { css } from "@emotion/react"
+import { css, keyframes } from "@emotion/react"
 import PropTypes from "prop-types"
+
+const loadHeader = keyframes`
+  from {
+    transform: translateY(10%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`
 
 const pageHeaderStyles = (theme) => css`
   display: flex;
@@ -8,6 +19,7 @@ const pageHeaderStyles = (theme) => css`
   align-items: center;
   font-size: 2rem;
   margin-bottom: 50px;
+  animation: ${loadHeader} 1s ease-in-out forwards;
 
   ${theme.mediaQueries.phone} {
     font-size: 2.3rem;

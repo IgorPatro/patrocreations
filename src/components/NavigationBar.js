@@ -89,6 +89,10 @@ const desktopVersionStyles = (theme) => css`
         &:hover {
           color: ${theme.colors.blue};
         }
+
+        &.active {
+          color: ${theme.colors.blue};
+        }
       }
     }
   }
@@ -107,7 +111,9 @@ const NavigationBar = ({ toggleNavigationFunc, isNavigationOpen }) => (
       <ul>
         {routes.map((route) => (
           <li key={route.name}>
-            <Link to={route.path}>{route.name}</Link>
+            <Link to={route.path} activeClassName="active">
+              {route.name}
+            </Link>
           </li>
         ))}
       </ul>
