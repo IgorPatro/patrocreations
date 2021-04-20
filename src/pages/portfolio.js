@@ -4,6 +4,7 @@ import { css } from "@emotion/react"
 
 import MainLayout from "layout/MainLayout"
 import PageHeader from "components/PageHeader"
+import SEO from "components/SEO"
 import PortfolioProject from "components/PortfolioProject"
 
 const projectsWrapper = (theme) => css`
@@ -66,14 +67,17 @@ const PortfolioPage = () => {
   `)
 
   return (
-    <MainLayout>
-      <PageHeader data={datoCmsPortfolioPage.pageHeader} />
-      <div css={projectsWrapper}>
-        {datoCmsPortfolioPage.portfolioProjects.map((project) => (
-          <PortfolioProject data={project} key={project.id} />
-        ))}
-      </div>
-    </MainLayout>
+    <>
+      <SEO pageName="Portfolio" />
+      <MainLayout>
+        <PageHeader data={datoCmsPortfolioPage.pageHeader} />
+        <div css={projectsWrapper}>
+          {datoCmsPortfolioPage.portfolioProjects.map((project, index) => (
+            <PortfolioProject data={{ ...project, index }} key={project.id} />
+          ))}
+        </div>
+      </MainLayout>
+    </>
   )
 }
 export default PortfolioPage

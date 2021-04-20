@@ -2,10 +2,22 @@ import React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import PropTypes from "prop-types"
-import { css } from "@emotion/react"
+import { css, keyframes } from "@emotion/react"
 
 import HomeHeader from "components/HomeHeader"
+import SEO from "components/SEO"
 import MainLayout from "layout/MainLayout"
+
+const loadImage = keyframes`
+  from {
+    transform: translateX(10%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`
 
 const indexPageWrapperStyles = (theme) => css`
   width: 100%;
@@ -18,6 +30,9 @@ const indexPageWrapperStyles = (theme) => css`
 
 const heroImageStyles = (theme) => css`
   width: 100%;
+  opacity: 0;
+  transform: translateX(10%);
+  animation: ${loadImage} 1s ease-in-out 2s forwards;
 
   ${theme.mediaQueries.tablet} {
     width: 80%;
@@ -32,12 +47,15 @@ const heroImageStyles = (theme) => css`
 `
 
 const IndexPage = ({ data }) => (
-  <MainLayout template="home">
-    <div css={indexPageWrapperStyles}>
-      <Img css={heroImageStyles} fluid={data.file.childImageSharp.fluid} />
-      <HomeHeader />
-    </div>
-  </MainLayout>
+  <>
+    <SEO pageName="Home" />
+    <MainLayout template="home">
+      <div css={indexPageWrapperStyles}>
+        <Img css={heroImageStyles} fluid={data.file.childImageSharp.fluid} />
+        <HomeHeader />
+      </div>
+    </MainLayout>
+  </>
 )
 
 IndexPage.propTypes = {

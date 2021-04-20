@@ -90,6 +90,12 @@ const formStyles = (theme) => css`
       width: 200px;
       height: 40px;
       font-size: 0.8em;
+      transition: color 0.3s, background 0.3s;
+
+      &:hover {
+        color: ${theme.colors.blue};
+        background-color: white;
+      }
     }
   }
 

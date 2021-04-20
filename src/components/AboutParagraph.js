@@ -1,15 +1,41 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { css } from "@emotion/react"
+import { css, keyframes } from "@emotion/react"
 import styled from "@emotion/styled"
 
-const getBeforeContent = ({ beforeContent }) => ({
-  content: `"${beforeContent}"`,
+const loadAboutParagraphFromRight = keyframes`
+  from {
+    transform: translateX(10%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`
+
+const loadAboutParagraphFromLeft = keyframes`
+  from {
+    transform: translateX(-10%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`
+
+const injectAnimation = ({ index }) => ({
+  animation: `${
+    index % 2 === 0 ? loadAboutParagraphFromLeft : loadAboutParagraphFromRight
+  } 1s ease-in-out ${1 + index * 0.5}s forwards`,
 })
 
 const StyledAboutParagraph = styled.article`
+  ${injectAnimation}
+
   &::before {
-    ${getBeforeContent}
+    content: ${({ index }) => `"0${index + 1}"`};
   }
 `
 
@@ -17,6 +43,8 @@ const wrapperStyles = (theme) => css`
   position: relative;
   font-size: 2.3rem;
   margin: 70px 0;
+  transform: translateX(10%);
+  opacity: 0;
 
   ${theme.mediaQueries.tablet} {
     font-size: 3rem;
@@ -98,6 +126,8 @@ const wrapperStyles = (theme) => css`
   &.right {
     text-align: right;
     margin: 0 0 0 auto;
+    transform: translateX(-10%);
+    opacity: 0;
 
     &::before {
       right: 0;
@@ -125,7 +155,7 @@ const AboutParagraph = ({ content }) => (
   <StyledAboutParagraph
     css={wrapperStyles}
     className={content.index % 2 === 0 ? "left" : "right"}
-    beforeContent={`0${content.index + 1}`}
+    index={content.index}
   >
     <div
       className="subtitle-wrapper"

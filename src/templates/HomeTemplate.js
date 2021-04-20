@@ -7,6 +7,15 @@ import HamburgerButton from "components/HamburgerButton"
 import LogoWhite from "assets/logo-white.svg"
 import DecorationCircle from "assets/decoration-circle.svg"
 
+const loadTemplate = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`
+
 const mainStyles = css`
   width: 100%;
   height: 100vh;
@@ -44,6 +53,7 @@ const navigationStyles = (theme) => css`
   justify-content: space-between;
   align-items: center;
   z-index: 20;
+  animation: ${loadTemplate} 1.5s ease-in-out forwards;
 
   ${theme.mediaQueries.desktop} {
     z-index: 0;
@@ -69,6 +79,7 @@ const contactStyles = (theme) => css`
   justify-content: space-between;
   align-items: flex-end;
   font-family: ${theme.fontFamily.JetBrainsMono};
+  animation: ${loadTemplate} 1.5s ease-in-out forwards;
 
   ${theme.mediaQueries.phone} {
     font-size: 1.3rem;

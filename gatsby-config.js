@@ -7,12 +7,30 @@ module.exports = {
   siteMetadata: {
     title: "Patrocreations",
     siteUrl: "https://patrocreations.com",
+    description:
+      "Hi there, I'm Igor Patro and i want to become a junior front-end developer. Happy to see you on my website.",
+    author: "Igor Patro",
   },
   plugins: [
     {
-      resolve: "gatsby-plugin-google-analytics",
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: process.env.REACT_APP_ANALYTICS_TRACKING_ID,
+        trackingIds: [process.env.REACT_APP_ANALYTICS_TRACKING_ID],
+      },
+      pluginConfig: {
+        head: true,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Patrocreations`,
+        short_name: `Patrocreations`,
+        start_url: `/`,
+        background_color: `#000000`,
+        theme_color: `#000000`,
+        display: `standalone`,
+        icon: "src/assets/icon.png",
       },
     },
     {
@@ -31,14 +49,25 @@ module.exports = {
           ],
         },
         usePreload: true,
-        // usePreconnect: false,
+        usePreconnect: true,
       },
     },
     {
       resolve: `gatsby-source-datocms`,
       options: {
         apiToken: process.env.REACT_APP_DATOCMS_API_TOKEN,
-        disableLiveReload: false, // change later
+        disableLiveReload: true,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-htaccess",
+      options: {
+        https: true,
+        www: false,
+        host: "patrocreations.com",
+        ErrorDocument: `
+          ErrorDocument 404 /404/index.html
+        `,
       },
     },
     `gatsby-plugin-emotion`,
@@ -46,12 +75,6 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
-    {
-      resolve: "gatsby-plugin-manifest",
-      options: {
-        icon: "src/assets/icon.png",
-      },
-    },
     "gatsby-transformer-sharp",
     {
       resolve: `gatsby-source-filesystem`,

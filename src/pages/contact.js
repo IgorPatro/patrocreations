@@ -3,6 +3,7 @@ import { css } from "@emotion/react"
 
 import MainLayout from "layout/MainLayout"
 import ContactForm from "components/ContactForm"
+import SEO from "components/SEO"
 
 const additionalPadding = (theme) => css`
   width: 100%;
@@ -33,12 +34,15 @@ const additionalPadding = (theme) => css`
 `
 
 const ContactPage = () => (
-  <MainLayout>
-    <div css={additionalPadding}>
-      <h1>Let’s send a message to me! Maybe I will read this 😜</h1>
-      <ContactForm />
-    </div>
-  </MainLayout>
+  <>
+    <SEO pageName="Contact" />
+    <MainLayout>
+      <div css={additionalPadding}>
+        <h1>Go on and send me a message! Maybe I will read this 😜</h1>
+        <ContactForm />
+      </div>
+    </MainLayout>
+  </>
 )
 
 export default ContactPage
