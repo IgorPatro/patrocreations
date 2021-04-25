@@ -64,7 +64,6 @@ module.exports = {
       options: {
         https: true,
         www: false,
-        host: "patrocreations.com",
         ErrorDocument: `
           ErrorDocument 404 /404/index.html
         `,
