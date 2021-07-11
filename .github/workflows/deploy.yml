@@ -1,0 +1,28 @@
+on: workflow_dispatch
+
+name: 🚀 Development Build and Deploy
+
+jobs:
+  build-and-deploy:
+    name: 🎉 Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 15.8.0
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: '15.8.0'
+
+      - name: 🔨 Build Project
+        run: |
+          yarn
+          yarn build
+
+      - name: 📂 Send files
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+          server: ftp.webing05.vot.pl
+          username: ${{ secrets.ftp_username }}
+          password: ${{ secrets.ftp_password }}
