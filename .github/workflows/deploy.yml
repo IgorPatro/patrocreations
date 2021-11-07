@@ -20,6 +20,13 @@ jobs:
         with:
           node-version: "15.8.0"
 
+      - name: Create env file
+        run: |
+          touch .env
+          echo REACT_APP_ANALYTICS_TRACKING_ID=${{ secrets.REACT_APP_ANALYTICS_TRACKING_ID }} >> .env
+          echo REACT_APP_DATOCMS_API_TOKEN=${{ secrets.REACT_APP_DATOCMS_API_TOKEN }} >> .env
+          cat .env
+
       - name: 🔨 Build Project
         run: |
           yarn
