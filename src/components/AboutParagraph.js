@@ -35,7 +35,8 @@ const StyledAboutParagraph = styled.article`
   ${injectAnimation}
 
   &::before {
-    content: ${({ index }) => `"0${index + 1}"`};
+    content: ${({ index }) =>
+      index >= 9 ? `"${index + 1}"` : `"0${index + 1}"`};
   }
 `
 
