@@ -2,7 +2,7 @@
 
 # Patrocreations
 
-## Status: ````Cancaled````
+## Status: ````Running````
 
 ## Description
 Landing page for minecraft server with players database management and payments
