@@ -1,20 +1,18 @@
-## 🚀 Quick start
+<img alt="Server Logo" src="https://patrocreations.com/static/logo-white-7465fda7cf54d9bd7d5aa1a4e36ae3ed.svg" width="150" />
 
-1.  **Start developing.**
+# Patrocreations
 
-    Navigate into your new site’s directory and start it up.
+## Status: ````Cancaled````
 
-    ```shell
-    cd patrocreations/
-    npm run develop
-    ```
+## Description
+Landing page for minecraft server with players database management and payments
 
-    or if you are using yarn:
+## Technologies
+- PHP
+- SCSS
+- P24
 
-    ```shell
-    yarn start
-    ```
+## Setup 
+Download repo and place it on nginx/apache server
 
-2.  **Open the code**
 
-    Your site is now running at http://localhost:8000!
