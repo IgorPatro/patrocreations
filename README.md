@@ -5,14 +5,25 @@
 ## Status: ````Running````
 
 ## Description
-Landing page for minecraft server with players database management and payments
+My personal portfolio
 
 ## Technologies
-- PHP
-- SCSS
-- P24
+- Gatsby
+- @emotion
 
 ## Setup 
-Download repo and place it on nginx/apache server
+```bash
+## Setup and run app
+- run 'yarn'
+- create .env file
+- run 'yarn start'
+
+## Available commands
+- develop # developing site
+- start # clean develop
+- build # production build
+- serve # serving production build
+- clean # cleaning cache
+```
 
 
