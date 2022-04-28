@@ -29,6 +29,7 @@ const SEO = ({ pageName }) => {
         name="google-site-verification"
         content="n9sBpBJG06aKLsHnzr5dDcbj-0E5xq9inG8I4Kj3M2I"
       />
+      <meta name="ahrefs-site-verification" content="2aa182d1893218335a5d875d8fb99907cf6f2c744b00dce51e6d450d1d35ae25" />
       <meta charset="utf-8" />
       <meta name="description" content={site.siteMetadata.description} />
       <meta name="author" content={site.siteMetadata.author} />
