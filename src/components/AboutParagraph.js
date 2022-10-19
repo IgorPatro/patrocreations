@@ -26,30 +26,29 @@ const loadAboutParagraphFromLeft = keyframes`
 `
 
 const injectAnimation = ({ index }) => ({
-  animation: `${
-    index % 2 === 0 ? loadAboutParagraphFromLeft : loadAboutParagraphFromRight
-  } 1s ease-in-out ${1 + index * 0.5}s forwards`,
+  animation: `${index % 2 === 0 ? loadAboutParagraphFromLeft : loadAboutParagraphFromRight
+    } 1s ease-in-out ${1 + index * 0.5}s forwards`,
 })
 
 const StyledAboutParagraph = styled.article`
   ${injectAnimation}
 
-  &::before {
+  /* &::before {
     content: ${({ index }) =>
-      index >= 9 ? `"${index + 1}"` : `"0${index + 1}"`};
-  }
+    index >= 9 ? `"${index + 1}"` : `"0${index + 1}"`};
+  } */
 `
 
 const wrapperStyles = (theme) => css`
   position: relative;
   font-size: 2.3rem;
-  margin: 70px 0;
+  /* margin: 70px 0; */
   transform: translateX(10%);
   opacity: 0;
 
   ${theme.mediaQueries.tablet} {
     font-size: 3rem;
-    width: 75%;
+    /* width: 75%; */
     max-width: 600px;
     margin: 100px 0;
   }
@@ -115,7 +114,7 @@ const wrapperStyles = (theme) => css`
 
   p {
     font-size: 0.6em;
-    line-height: 1.2em;
+    line-height: 1.5em;
 
     strong {
       color: ${theme.colors.blue};
@@ -156,7 +155,7 @@ const AboutParagraph = ({ content }) => (
   <StyledAboutParagraph
     css={wrapperStyles}
     className={content.index % 2 === 0 ? "left" : "right"}
-    index={content.index}
+    index={content.index ? content.index : ""}
   >
     <div
       className="subtitle-wrapper"
