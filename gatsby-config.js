@@ -6,9 +6,9 @@ module.exports = {
   flags: { PRESERVE_WEBPACK_CACHE: true },
   siteMetadata: {
     title: "Patrocreations",
-    siteUrl: "https://patrocreations.pl",
+    siteUrl: "https://patrocreations.com",
     description:
-      "Hi there, I'm Igor Patro and i want to become a junior front-end developer. Happy to see you on my website.",
+      "I’m a young geek who loves sitting with a cup of coffee and writing code! ☕ My work is my passion 🙏 I love improving my skills, and I’m always looking forward to getting new experiences.",
     author: "Igor Patro",
   },
   plugins: [

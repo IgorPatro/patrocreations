@@ -23,7 +23,7 @@ const SEO = ({ pageName }) => {
       htmlAttributes={{
         lang: "pl",
       }}
-      title={`${site.siteMetadata.title} - ${pageName} | Igor Patro | Portfolio | Projects | Junior | Front-End Developer`}
+      title={`${site.siteMetadata.title} - ${pageName} | Igor Patro | Portfolio | Projects | Frontend Developer`}
     >
       <meta
         name="google-site-verification"
