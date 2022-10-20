@@ -53,7 +53,7 @@ const wrapperStyles = (theme) => css`
 
 const NotFoundPage = () => (
   <>
-    <SEO pageName="About" />
+    <SEO pageName="404" />
     <MainLayout>
       <div css={wrapperStyles}>
         <h1>404</h1>
