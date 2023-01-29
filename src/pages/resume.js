@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 import { css } from "@emotion/react"
 import { graphql, useStaticQuery } from "gatsby"
 import { Helmet } from "react-helmet"
-import Img from "gatsby-image"
+import Img from "gatsby-image/withIEPolyfill"
 import theme from "layout/theme"
 import email from "assets/email.svg"
 import phone from "assets/phone.svg"
@@ -33,6 +33,9 @@ const wrapperStyles = css`
 
 const resumeWrapper = css`
   max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 `
 
 const introductionWrapper = css`
@@ -106,7 +109,7 @@ const ContactItem = styled("div")`
 const employmentWrapper = css`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 `
 
 const sectionTitle = css`
@@ -120,7 +123,7 @@ const WorkPlace = styled("div")`
   display: grid;
   grid-template-columns: 40px 1fr;
   gap: 10px;
-  margin-top: 10px;
+  margin-bottom: 15px;
 
   .logo {
     width: 100%;
@@ -175,7 +178,7 @@ const Project = styled("div")`
   display: grid;
   grid-template-columns: 40px 1fr;
   gap: 10px;
-  margin-top: 10px;
+  margin-bottom: 15px;
 
   .logo {
     width: 100%;
@@ -220,6 +223,22 @@ const Project = styled("div")`
   }
 `
 
+const techWrapper = css``
+
+const logosWrapper = css`
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+`
+
+const techLogo = css`
+  width: 100%;
+  max-width: 40px;
+  max-height: 40px;
+`
+
 const ResumePage = () => {
   const data = useStaticQuery(graphql`
     query ResumePageData {
@@ -230,7 +249,7 @@ const ResumePage = () => {
           }
         }
       }
-      allFile(filter: { name: { regex: "/logo/" } }) {
+      allFile(filter: { name: { regex: "/logo|tech/" } }) {
         edges {
           node {
             id
@@ -264,7 +283,13 @@ const ResumePage = () => {
     ),
     aloki: data.allFile.edges.find((el) => el.node.name.includes("aloki")),
     labz: data.allFile.edges.find((el) => el.node.name.includes("labz")),
+    dreamgame: data.allFile.edges.find((el) =>
+      el.node.name.includes("dreamgame")
+    ),
+    tmb: data.allFile.edges.find((el) => el.node.name.includes("tmb")),
   }
+
+  const techs = data.allFile.edges.filter((el) => el.node.name.includes("tech"))
 
   return (
     <>
@@ -294,9 +319,6 @@ const ResumePage = () => {
               <h2>Passionate Frontend Developer 🙏</h2>
             </header>
           </div>
-
-          <br />
-          <br />
 
           <div css={contactWrapper}>
             <ContactItem background={location}>
@@ -340,12 +362,8 @@ const ResumePage = () => {
             </ContactItem>
           </div>
 
-          <br />
-          <br />
-
-          <h1 css={sectionTitle}>About</h1>
-
           <div css={aboutWrapper}>
+            <h1 css={sectionTitle}>About</h1>
             <p>
               Creating modern applications and blazingly fast websites is my
               passion ⚡ Building beautifully designed layouts gives me enormous
@@ -359,12 +377,8 @@ const ResumePage = () => {
             </p>
           </div>
 
-          <br />
-          <br />
-
-          <h1 css={sectionTitle}>Work experience</h1>
-
           <div css={employmentWrapper}>
+            <h1 css={sectionTitle}>Work experience</h1>
             <WorkPlace>
               <a
                 target="_blank"
@@ -388,10 +402,28 @@ const ResumePage = () => {
                   <span className="dates">May 2022 - Present</span>
                   <ul>
                     <li>
-                      Created long-term vision of the project, finance plans,
-                      strategies and got the first investor to start the
-                      development process.
+                      Taking active part in company strategy and planning,
+                      including finances, marketing, sales and product
+                      development.
                     </li>
+                    <li>
+                      Building processes, marketing automations and make.com
+                      integrations.
+                    </li>
+                    <li>
+                      Improving company website and landing pages with
+                      Gatsby.js.
+                    </li>
+                    <li>Planning marketing strategies and budgets.</li>
+                    <li>
+                      Managing finances, contracts and documentation of the
+                      company.
+                    </li>
+                  </ul>
+
+                  <h4 className="position">Lead Web Developer</h4>
+                  <span className="dates">May 2022 - Present</span>
+                  <ul>
                     <li>
                       Created Cloud architecture for the company, including
                       CI/CD processes, Code Review tools, Developer Experience
@@ -399,37 +431,15 @@ const ResumePage = () => {
                       workspaces and other tools.
                     </li>
                     <li>
-                      Leading team of 2 developers, UX/UI designer, 2 marketing
-                      specialists and copywriter.
+                      Leading team of 2 developers, UX/UI designer, graphic
+                      designer and copywriter across 3 Jamstack projects.
                     </li>
                     <li>
-                      Built codebase needed for Next.js Web Client application,
-                      Nest.js Backend application, Next.js Admin & CMS Manager
-                      Application, React Native Client Application with complete
-                      CI/CD solutions and Turborepo Packages.
-                    </li>
-                    <li>Planning marketing strategies and budgets.</li>
-                  </ul>
-
-                  <h4 className="position">Lead Web Developer</h4>
-                  <span className="dates">May 2022 - Present</span>
-                  <ul>
-                    <li>
-                      Proposed and implemented company technology upgrade
-                      including Typescript, React 18, Next.js, Server State
-                      Management, CI/CD processes, Git flow and Code reviews.
+                      Building knowledge library for the company and
+                      continuously improving codebase and technologies stack.
                     </li>
                     <li>
-                      Constantly improving project management processes and
-                      testing new work methodologies and communications
-                      techniques.
-                    </li>
-                    <li>
-                      Building complete React/Typescript/Nest applications.
-                    </li>
-                    <li>
-                      Building processes, marketing automations and make.com
-                      integrations.
+                      Closely working with clients and discussing details.
                     </li>
                   </ul>
                 </div>
@@ -455,40 +465,15 @@ const ResumePage = () => {
                 </div>
 
                 <div className="positions">
-                  <h4 className="position">React Developer</h4>
+                  <h4 className="position">Frontend Developer</h4>
                   <span className="dates">Dec 2022 - Present</span>
                   <ul>
                     <li>
-                      Created long-term vision of the project, finance plans,
-                      strategies and got the first investor to start the
-                      development process.
+                      Building complete React x Redux application with REST API.
                     </li>
                     <li>
-                      Created Cloud architecture for the company, including
-                      CI/CD processes, Code Review tools, Developer Experience
-                      tools, Project Management tools, Slack workspaces, Google
-                      workspaces and other tools.
-                    </li>
-                    <li>
-                      Leading team of 2 developers, UX/UI designer, 2 marketing
-                      specialists and copywriter.
-                    </li>
-                    <li>
-                      Built codebase needed for Next.js Web Client application,
-                      Nest.js Backend application, Next.js Admin & CMS Manager
-                      Application, React Native Client Application with complete
-                      CI/CD solutions and Turborepo Packages.
-                    </li>
-                    <li>Planning marketing strategies and budgets.</li>
-                  </ul>
-
-                  <h4 className="position">Lead Web Developer</h4>
-                  <span className="dates">May 2022 - Present</span>
-                  <ul>
-                    <li>
-                      Proposed and implemented company technology upgrade
-                      including Typescript, React 18, Next.js, Server State
-                      Management, CI/CD processes, Git flow and Code reviews.
+                      Closely working with project manager and discussing
+                      details of the project and requirements.
                     </li>
                     <li>
                       Constantly improving project management processes and
@@ -496,11 +481,8 @@ const ResumePage = () => {
                       techniques.
                     </li>
                     <li>
-                      Building complete React/Typescript/Nest applications.
-                    </li>
-                    <li>
-                      Building processes, marketing automations and make.com
-                      integrations.
+                      Implementing new technologies and libraries in the
+                      project.
                     </li>
                   </ul>
                 </div>
@@ -526,52 +508,108 @@ const ResumePage = () => {
                 </div>
 
                 <div className="positions">
-                  <h4 className="position">React Developer</h4>
-                  <span className="dates">Dec 2022 - Present</span>
+                  <h4 className="position">Fullstack Developer</h4>
+                  <span className="dates">Jul 2022 - Nov 2022</span>
                   <ul>
                     <li>
-                      Created long-term vision of the project, finance plans,
-                      strategies and got the first investor to start the
-                      development process.
+                      Proposed and implemented a headless content management
+                      system that highly reduced the time needed for content
+                      editing.
                     </li>
                     <li>
-                      Created Cloud architecture for the company, including
-                      CI/CD processes, Code Review tools, Developer Experience
-                      tools, Project Management tools, Slack workspaces, Google
-                      workspaces and other tools.
+                      Took over the leadership in a 6-person team during a
+                      difficult period and managed to complete project tasks
+                      within a 2-weeks deadline.
                     </li>
                     <li>
-                      Leading team of 2 developers, UX/UI designer, 2 marketing
-                      specialists and copywriter.
+                      Participating in weekly brainstorming sessions and coming
+                      up with new features/adjustments to the projects.
                     </li>
                     <li>
-                      Built codebase needed for Next.js Web Client application,
-                      Nest.js Backend application, Next.js Admin & CMS Manager
-                      Application, React Native Client Application with complete
-                      CI/CD solutions and Turborepo Packages.
+                      Cooperating with DevOps Engineers to build and develop
+                      proper CI/CD solutions based on AWS and GitLab.
                     </li>
-                    <li>Planning marketing strategies and budgets.</li>
+                    <li>
+                      Collaborating with the PM and organizing work in the
+                      project, determining further development process.
+                    </li>
+                    <li>Developing Gatsby.js Jamstack project.</li>
                   </ul>
 
-                  <h4 className="position">Lead Web Developer</h4>
-                  <span className="dates">May 2022 - Present</span>
+                  <h4 className="position">Team Leader</h4>
+                  <span className="dates">Jul 2022 - Nov 2022</span>
                   <ul>
                     <li>
-                      Proposed and implemented company technology upgrade
-                      including Typescript, React 18, Next.js, Server State
-                      Management, CI/CD processes, Git flow and Code reviews.
+                      Leading Unity Gamedev team of 5 people, including 3
+                      developers, 1 artist, 1 designer.
+                    </li>
+                    <li>Organizing the work in a project</li>
+                    <li>
+                      Helping developers with technical aspects of the project
+                    </li>
+                  </ul>
+
+                  <h4 className="position">Junior React Developer</h4>
+                  <span className="dates">May 2021 - Jun 2022</span>
+                  <ul>
+                    <li>
+                      {`Created a Stripe payment system that significantly sped up
+                      the platform's release.`}
                     </li>
                     <li>
-                      Constantly improving project management processes and
-                      testing new work methodologies and communications
-                      techniques.
+                      Developing a no-code event platform in React (Next.js &
+                      Redux) and TypeScript.
                     </li>
                     <li>
-                      Building complete React/Typescript/Nest applications.
+                      Created the technical documentation that cut the
+                      onboarding time for new developers by 50%.
                     </li>
                     <li>
-                      Building processes, marketing automations and make.com
-                      integrations.
+                      Reviewing the code of team members and providing them
+                      feedback.
+                    </li>
+                    <li>
+                      Constantly learning and expanding knowledge about React
+                      and TypeScript by reading articles & exchanging knowledge
+                      with other developers.
+                    </li>
+                    <li>Taking part in AWS workshops & Jest workshops.</li>
+                  </ul>
+                </div>
+              </div>
+            </WorkPlace>
+
+            <WorkPlace>
+              <a
+                target="_blank"
+                rel="noindex nofollow noreferrer"
+                href="https://skyagency360.pl/"
+              >
+                <Img
+                  objectFit="contain"
+                  className="logo"
+                  fluid={logos.skyagency.node.childImageSharp.fluid}
+                />
+              </a>
+              <div>
+                <div className="company-label">
+                  <h3 className="company">SkyAgency 360</h3>
+                  <span className="company-full-time">7 mos</span>
+                </div>
+
+                <div className="positions">
+                  <h4 className="position">Frontend Developer</h4>
+                  <span className="dates">Feb 2021 - Aug 2021</span>
+                  <ul>
+                    <li>Designed and built 3 React websites.</li>
+                    <li>
+                      Actively communicating and discussing projects with
+                      customers and providing them with work reports.
+                    </li>
+                    <li>Cooperating with various companies and freelancers.</li>
+                    <li>
+                      Implementing Google Analytics and other tracking
+                      solutions.
                     </li>
                   </ul>
                 </div>
@@ -593,95 +631,30 @@ const ResumePage = () => {
               <div>
                 <div className="company-label">
                   <h3 className="company">Patrocreations</h3>
-                  <span className="company-full-time">3 mos</span>
+                  <span className="company-full-time">2 yr 2 mos</span>
                 </div>
 
                 <div className="positions">
-                  <h4 className="position">React Developer</h4>
-                  <span className="dates">Dec 2022 - Present</span>
+                  <h4 className="position">Freelance Web Developer</h4>
+                  <span className="dates">Apr 2020 - May 2022</span>
                   <ul>
+                    <li>Designing and developing React websites.</li>
                     <li>
-                      Created long-term vision of the project, finance plans,
-                      strategies and got the first investor to start the
-                      development process.
+                      Optimizing websites to +95/100 points on PageSpeed
+                      Insights.
                     </li>
                     <li>
-                      Created Cloud architecture for the company, including
-                      CI/CD processes, Code Review tools, Developer Experience
-                      tools, Project Management tools, Slack workspaces, Google
-                      workspaces and other tools.
+                      Analyzing website traffic and providing UX/UI adjustments
+                      to websites.
                     </li>
-                    <li>
-                      Leading team of 2 developers, UX/UI designer, 2 marketing
-                      specialists and copywriter.
-                    </li>
-                    <li>
-                      Built codebase needed for Next.js Web Client application,
-                      Nest.js Backend application, Next.js Admin & CMS Manager
-                      Application, React Native Client Application with complete
-                      CI/CD solutions and Turborepo Packages.
-                    </li>
-                    <li>Planning marketing strategies and budgets.</li>
-                  </ul>
-                </div>
-              </div>
-            </WorkPlace>
-
-            <WorkPlace>
-              <a
-                target="_blank"
-                rel="noindex nofollow noreferrer"
-                href="https://skyagency360.pl/"
-              >
-                <Img
-                  objectFit="contain"
-                  className="logo"
-                  fluid={logos.skyagency.node.childImageSharp.fluid}
-                />
-              </a>
-              <div>
-                <div className="company-label">
-                  <h3 className="company">SkyAgency 360</h3>
-                  <span className="company-full-time">3 mos</span>
-                </div>
-
-                <div className="positions">
-                  <h4 className="position">React Developer</h4>
-                  <span className="dates">Dec 2022 - Present</span>
-                  <ul>
-                    <li>
-                      Created long-term vision of the project, finance plans,
-                      strategies and got the first investor to start the
-                      development process.
-                    </li>
-                    <li>
-                      Created Cloud architecture for the company, including
-                      CI/CD processes, Code Review tools, Developer Experience
-                      tools, Project Management tools, Slack workspaces, Google
-                      workspaces and other tools.
-                    </li>
-                    <li>
-                      Leading team of 2 developers, UX/UI designer, 2 marketing
-                      specialists and copywriter.
-                    </li>
-                    <li>
-                      Built codebase needed for Next.js Web Client application,
-                      Nest.js Backend application, Next.js Admin & CMS Manager
-                      Application, React Native Client Application with complete
-                      CI/CD solutions and Turborepo Packages.
-                    </li>
-                    <li>Planning marketing strategies and budgets.</li>
                   </ul>
                 </div>
               </div>
             </WorkPlace>
           </div>
 
-          <br />
-          <br />
-
-          <h1 css={sectionTitle}>Projects</h1>
           <div css={employmentWrapper}>
+            <h1 css={sectionTitle}>Projects</h1>
             <Project>
               <a
                 target="_blank"
@@ -697,30 +670,54 @@ const ResumePage = () => {
               <div>
                 <div className="project-label">
                   <h3 className="project">Alóki</h3>
-                  <span className="project-full-time">3 mos</span>
+                  <span className="project-full-time">6 mos</span>
                 </div>
 
                 <div className="description">
                   <p>
-                    Alóki is an inspiring Web3 game project with the goal of
-                    creating an incredible community around Costa Rican nature
-                    and culture, while also providing a meaningful and
-                    environmentally friendly investment opportunity.
+                    First-ever Play-to-Own blockchain gaming concept with
+                    Sustainability at its core. The main desire of the team was
+                    to reconnect people to nature. Through Alóki play-to-own
+                    metaverse, users will entertain, earn and educate themselves
+                    about nature and Sustainability. Actions made by players in
+                    the game reflect real-world actions. Alóki sanctuary was
+                    created to bring positive environmental change and make the
+                    world a better place.
                   </p>
 
                   <br />
 
                   <p>
-                    Contribution as <strong>Frontend Developer:</strong>
+                    Contribution as a <strong>Frontend Developer</strong> &{" "}
+                    <strong>Team Leader</strong>:
                   </p>
 
                   <ul>
                     <li>
-                      Created long-term vision of the project, finance plans,
+                      Managing a team of 3 developers and a UX/UI designer.
                     </li>
                     <li>
-                      Created Cloud architecture for the company, including
-                      CI/CD processes, Code Review tools, Developer Experience
+                      Designing the technical side of the project, planning
+                      architecture.
+                    </li>
+                    <li>
+                      Taking part in creating UX/UI and brainstorming sessions
+                      with designers.
+                    </li>
+                    <li>
+                      Building Gatsby.js website with Strapi.js headless CMS.
+                    </li>
+                    <li>
+                      Cooperating with DevOps Engineer and planning CI/CD
+                      architecture.
+                    </li>
+                    <li>Actively communicating with a client.</li>
+                    <li>
+                      Providing help with browser solutions to a game-dev team.
+                    </li>
+                    <li>
+                      Building backend application with newsletter
+                      implementation.
                     </li>
                   </ul>
                 </div>
@@ -742,36 +739,179 @@ const ResumePage = () => {
               <div>
                 <div className="project-label">
                   <h3 className="project">The Labz Event Designer</h3>
-                  <span className="project-full-time">1 yr</span>
+                  <span className="project-full-time">11 mos</span>
                 </div>
 
                 <div className="description">
                   <p>
-                    Organizing an online event has never been easier! Be it
-                    business or entertainment, The Labz offers versatile,
-                    customizable elements to create a branded experience. You
-                    can create your own event even if you have had nothing to do
-                    with programming or graphic design!
+                    A powerful tool to create online events from scratch using
+                    simple components. With the ability to change the size,
+                    color, pattern, and arrangement of the elements, the user
+                    can easily create a website or an online event. It has a lot
+                    of extensions and breathtaking features like 3d Panellum
+                    implementations, authentication, drawing blackboard, or live
+                    streaming. It allows users even to create a videoconference
+                    with a live chat!
                   </p>
 
                   <br />
 
                   <p>
-                    Contribution as <strong>Frontend Developer:</strong>
+                    Contribution as a <strong>React Developer</strong>:
                   </p>
 
                   <ul>
                     <li>
-                      Created long-term vision of the project, finance plans,
+                      Configuring and implementing Stripe subscription payments.
                     </li>
                     <li>
-                      Created Cloud architecture for the company, including
-                      CI/CD processes, Code Review tools, Developer Experience
+                      Building perspective component and 360* images viewer
+                      (Panellum).
+                    </li>
+                    <li>
+                      Planning and refactoring entire typography on the
+                      platform.
+                    </li>
+                    <li>
+                      Designing, developing, and manually testing new
+                      features/components.
+                    </li>
+                    <li>Creating docs for both developers and client.</li>
+                    <li>Reviewing the code of team members.</li>
+                  </ul>
+                </div>
+              </div>
+            </Project>
+
+            <Project>
+              <Img
+                objectFit="contain"
+                className="logo"
+                fluid={logos.dreamgame.node.childImageSharp.fluid}
+              />
+              <div>
+                <div className="project-label">
+                  <h3 className="project">DreamGame</h3>
+                  <span className="project-full-time">5 mos</span>
+                </div>
+
+                <div className="description">
+                  <p>
+                    Internal game for DreamStorm Studios. The main reason for
+                    creating this application was to provide gamification into
+                    the company. Employees were able to earn points for
+                    completing tasks, and then exchange them for rewards.
+                  </p>
+
+                  <br />
+
+                  <p>
+                    Contribution as a <strong>Team Leader</strong>:
+                  </p>
+
+                  <ul>
+                    <li>
+                      Leading team of 5 people, including 3 developers, 1
+                      artist, 1 designer.
+                    </li>
+                    <li>Organizing the work in a project.</li>
+                    <li>
+                      Helping developers with technical aspects of the project.
                     </li>
                   </ul>
                 </div>
               </div>
             </Project>
+
+            <Project>
+              <Img
+                objectFit="contain"
+                className="logo"
+                fluid={logos.tmb.node.childImageSharp.fluid}
+              />
+              <div>
+                <div className="project-label">
+                  <h3 className="project">TMB</h3>
+                  <span className="project-full-time">3 mos</span>
+                </div>
+
+                <div className="description">
+                  <p>
+                    A platform for creating and managing services for the
+                    printing houes industry. It allows users to manage their
+                    orders, create invoices, and manage their clients. It also
+                    provides a lot of useful features like a calendar, a chat,
+                    and a dashboard. The main goal of the project was to create
+                    a platform that would help users to manage their business.
+                  </p>
+
+                  <br />
+
+                  <p>
+                    Contribution as a <strong>Frontend Developer</strong>:
+                  </p>
+
+                  <ul>
+                    <li>
+                      Improving existing JavaScript codebase and adding new
+                      features.
+                    </li>
+                    <li>
+                      Planning CI/CD processes for the project and helping
+                      DevOps Engineer with it.
+                    </li>
+                    <li>Building UX/UI interfaces</li>
+                  </ul>
+                </div>
+              </div>
+            </Project>
+
+            <Project>
+              <Img
+                objectFit="contain"
+                className="logo"
+                fluid={logos.patrocreations.node.childImageSharp.fluid}
+              />
+              <div>
+                <div className="project-label">
+                  <h3 className="project">Freelancing</h3>
+                  <span className="project-full-time">2 yr+</span>
+                </div>
+
+                <div className="description">
+                  <p>
+                    As a freelance web developer I was responsible for both designing and building websites. I’m a big Gatsby fanboy so most of those projects were built in this technology. I was testing a lot of methodologies of work, styling libraries and architecture ideas. Across 2+ years of providing services, I have built 7+ websites for many different clients and industries.
+                  </p>
+
+                  <br />
+
+                  <p>
+                    My best project are listed <a target="_blank"
+                      rel="noindex nofollow noreferrer" href="https://patrocreations.com/portfolio"><strong>here</strong></a>
+                  </p>
+                </div>
+              </div>
+            </Project>
+          </div>
+
+          <div>
+            <h1 css={sectionTitle}>Education</h1>
+
+            <p>Doesn&apos;t matter at all 🥱😛</p>
+          </div>
+
+          <div css={techWrapper}>
+            <h1 css={sectionTitle}>Tech Stack</h1>
+
+            <div css={logosWrapper}>
+              {techs.map((el) => (
+                <Img
+                  objectFit="contain"
+                  css={techLogo}
+                  fluid={el.node.childImageSharp.fluid}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
