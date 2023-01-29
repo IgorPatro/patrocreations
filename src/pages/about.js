@@ -43,7 +43,6 @@ const imageStyles = () => css`
   max-width: 500px;
 `
 
-
 const AboutPage = () => {
   const { datoCmsAboutPage, file } = useStaticQuery(graphql`
     query AboutPageData {
@@ -73,12 +72,12 @@ const AboutPage = () => {
         }
       }
       file(name: { eq: "igor" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid_tracedSVG
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid_tracedSVG
+          }
         }
       }
-    }
     }
   `)
 
@@ -96,23 +95,30 @@ const AboutPage = () => {
           ))} */}
           <div css={wrapperStyles}>
             <div css={contentWrapper}>
-
-              <AboutParagraph content={{
-                title: "Hi there!",
-                subtitleNode: {
-                  childMarkdownRemark: {
-                    html: "<h4>Who <strong>am</strong> I?</h4>"
-                  }
-                },
-                contentNode: {
-                  childMarkdownRemark: {
-                    html: `<p>I'm a developer by <strong>passion</strong>. I create both my <strong>projects</strong>, but I also work for different <strong>companies</strong>. You're probably wondering how it all started 😌 I started learning <strong>programming</strong> and <strong>web development</strong> in <strong>Junior High School</strong> a few years ago. Over the years, I've used many <strong>technologies</strong>, approaches, and techniques and worked with many <strong>designers</strong>, copywriters, and programmers. I also worked for two companies (<strong>DreamStorm Studios</strong> & <strong>SkyAgency 360</strong>) and even created my small agency (<strong>ModernityCloud</strong>). In the future, I would like to have the opportunity to work with <strong>the best</strong> and learn from them every day. I work towards my <strong>goal</strong> every day 😀</p>`
-                  }
-                },
-                index: false
-              }} />
+              <AboutParagraph
+                content={{
+                  title: "Hi there!",
+                  subtitleNode: {
+                    childMarkdownRemark: {
+                      html: "<h4>Who <strong>am</strong> I?</h4>",
+                    },
+                  },
+                  contentNode: {
+                    childMarkdownRemark: {
+                      html: `<p>I'm a passionate <strong>Frontend Developer</strong> and I love building things. Programming is my <strong>greatest passion</strong> as it gives me an enormous amout of joy 😁 </br>
+                      Everything started at the Junior High School where I finally made the decision and started learning <strong>web development</strong>.
+                      </br> Over the years I have been working with many different people and companies. I  was always wondering how is it to be an entreprenur so I founded <a href="https://modernitycloud.pl">ModernityCloud</a> agency 😍 </p>`,
+                    },
+                  },
+                  index: false,
+                }}
+              />
             </div>
-            <Img objectFit="contain" css={imageStyles} fluid={file.childImageSharp.fluid} />
+            <Img
+              objectFit="contain"
+              css={imageStyles}
+              fluid={file.childImageSharp.fluid}
+            />
           </div>
         </div>
       </MainLayout>
