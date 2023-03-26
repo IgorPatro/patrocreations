@@ -265,6 +265,19 @@ const ResumePage = () => {
     }
   `)
 
+  const calculateDuration = (d1, d2) => {
+    let months
+    months = (d2.getFullYear() - d1.getFullYear()) * 12
+    months -= d1.getMonth()
+    months += d2.getMonth()
+
+    const mths = (months <= 0 ? 0 : months) + 1
+
+    return mths >= 12
+      ? `${Math.floor(mths / 12)} yr ${mths % 12} mos`
+      : `${mths} mos`
+  }
+
   const logos = {
     gorillas: data.allFile.edges.find((el) =>
       el.node.name.includes("gorillas")
@@ -316,7 +329,7 @@ const ResumePage = () => {
             />
             <header css={header}>
               <h1>Igor Patro</h1>
-              <h2>Passionate Frontend Developer 🙏</h2>
+              <h2>Passionate React Fullstack Developer 🙏</h2>
             </header>
           </div>
 
@@ -394,7 +407,9 @@ const ResumePage = () => {
               <div>
                 <div className="company-label">
                   <h3 className="company">ModernityCloud</h3>
-                  <span className="company-full-time">10 mos</span>
+                  <span className="company-full-time">
+                    {calculateDuration(new Date("2022-05-01"), new Date())}
+                  </span>
                 </div>
 
                 <div className="positions">
@@ -461,7 +476,7 @@ const ResumePage = () => {
               <div>
                 <div className="company-label">
                   <h3 className="company">Gorillas.dev</h3>
-                  <span className="company-full-time">3 mos</span>
+                  <span className="company-full-time">{calculateDuration(new Date("2022-12-01"), new Date())}</span>
                 </div>
 
                 <div className="positions">
@@ -504,7 +519,7 @@ const ResumePage = () => {
               <div>
                 <div className="company-label">
                   <h3 className="company">DreamStorm Studios</h3>
-                  <span className="company-full-time">1 yr 7 mos</span>
+                  <span className="company-full-time">{calculateDuration(new Date("2021-05-01"), new Date("2022-11-01"))}</span>
                 </div>
 
                 <div className="positions">
@@ -594,7 +609,7 @@ const ResumePage = () => {
               <div>
                 <div className="company-label">
                   <h3 className="company">SkyAgency 360</h3>
-                  <span className="company-full-time">7 mos</span>
+                  <span className="company-full-time">{calculateDuration(new Date("2021-02-01"), new Date("2021-08-01"))}</span>
                 </div>
 
                 <div className="positions">
@@ -631,7 +646,7 @@ const ResumePage = () => {
               <div>
                 <div className="company-label">
                   <h3 className="company">Patrocreations</h3>
-                  <span className="company-full-time">2 yr 2 mos</span>
+                  <span className="company-full-time">{calculateDuration(new Date("2020-04-01"), new Date("2022-05-01"))}</span>
                 </div>
 
                 <div className="positions">
@@ -880,14 +895,26 @@ const ResumePage = () => {
 
                 <div className="description">
                   <p>
-                    As a freelance web developer I was responsible for both designing and building websites. I’m a big Gatsby fanboy so most of those projects were built in this technology. I was testing a lot of methodologies of work, styling libraries and architecture ideas. Across 2+ years of providing services, I have built 7+ websites for many different clients and industries.
+                    As a freelance web developer I was responsible for both
+                    designing and building websites. I’m a big Gatsby fanboy so
+                    most of those projects were built in this technology. I was
+                    testing a lot of methodologies of work, styling libraries
+                    and architecture ideas. Across 2+ years of providing
+                    services, I have built 7+ websites for many different
+                    clients and industries.
                   </p>
 
                   <br />
 
                   <p>
-                    My best project are listed <a target="_blank"
-                      rel="noindex nofollow noreferrer" href="https://patrocreations.com/portfolio"><strong>here</strong></a>
+                    My best project are listed{" "}
+                    <a
+                      target="_blank"
+                      rel="noindex nofollow noreferrer"
+                      href="https://patrocreations.com/portfolio"
+                    >
+                      <strong>here</strong>
+                    </a>
                   </p>
                 </div>
               </div>
