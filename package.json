@@ -49,7 +49,7 @@
     "prettier": "^2.2.1"
   },
   "scripts": {
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "start": "gatsby clean && gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
