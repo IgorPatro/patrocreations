@@ -436,7 +436,7 @@ const ResumePage = () => {
                     </li>
                   </ul>
 
-                  <h4 className="position">Lead Web Developer</h4>
+                  <h4 className="position">CTO</h4>
                   <span className="dates">May 2022 - Present</span>
                   <ul>
                     <li>

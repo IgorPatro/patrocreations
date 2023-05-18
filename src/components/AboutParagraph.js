@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { css, keyframes } from "@emotion/react"
-// import { Link } from "gatsby"
+import { Link } from "gatsby"
 import styled from "@emotion/styled"
 
 const loadAboutParagraphFromRight = keyframes`
@@ -157,26 +157,26 @@ const wrapperStyles = (theme) => css`
   }
 `
 
-// const resumeLink = (theme) => css`
-//   background-color: ${theme.colors.blue};
-//   color: white;
-//   border: none;
-//   border-radius: 100px;
-//   font-family: ${theme.fontFamily.JetBrainsMono};
-//   width: 200px;
-//   padding: 13px 0;
-//   font-size: 0.7em;
-//   transition: color 0.3s, background 0.3s;
-//   margin-top: 30px;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
+const resumeLink = (theme) => css`
+  background-color: ${theme.colors.blue};
+  color: white;
+  border: none;
+  border-radius: 100px;
+  font-family: ${theme.fontFamily.JetBrainsMono};
+  width: 200px;
+  padding: 13px 0;
+  font-size: 0.7em;
+  transition: color 0.3s, background 0.3s;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-//   &:hover {
-//     color: ${theme.colors.blue};
-//     background-color: white;
-//   }
-// `
+  &:hover {
+    color: ${theme.colors.blue};
+    background-color: white;
+  }
+`
 
 const AboutParagraph = ({ content }) => (
   <StyledAboutParagraph
@@ -196,7 +196,7 @@ const AboutParagraph = ({ content }) => (
         __html: content.contentNode.childMarkdownRemark.html,
       }}
     />
-    {/* <Link css={resumeLink} to="/resume">Resume</Link> */}
+    <Link css={resumeLink} to="/resume">Resume</Link>
   </StyledAboutParagraph>
 )
 
