@@ -279,6 +279,9 @@ const ResumePage = () => {
   }
 
   const logos = {
+    redvike: data.allFile.edges.find((el) =>
+      el.node.name.includes("redvike")
+    ),
     gorillas: data.allFile.edges.find((el) =>
       el.node.name.includes("gorillas")
     ),
@@ -329,7 +332,7 @@ const ResumePage = () => {
             />
             <header css={header}>
               <h1>Igor Patro</h1>
-              <h2>Passionate React Fullstack Developer 🙏</h2>
+              <h2>Passionate Frontend Engineer 🙏</h2>
             </header>
           </div>
 
@@ -392,6 +395,38 @@ const ResumePage = () => {
 
           <div css={employmentWrapper}>
             <h1 css={sectionTitle}>Work experience</h1>
+            <WorkPlace>
+              <a
+                target="_blank"
+                rel="noindex nofollow noreferrer"
+                href="https://redvike.com"
+              >
+                <Img
+                  objectFit="contain"
+                  className="logo"
+                  fluid={logos.redvike.node.childImageSharp.fluid}
+                />
+              </a>
+              <div>
+                <div className="company-label">
+                  <h3 className="company">Redvike</h3>
+                  <span className="company-full-time">
+                    {calculateDuration(new Date("2023-06-01"), new Date())}
+                  </span>
+                </div>
+
+                <div className="positions">
+                  <h4 className="position">Frontend Engineer</h4>
+                  <span className="dates">June 2023 - Present</span>
+                  <ul>
+                    <li>
+                      Building Next.js applications.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </WorkPlace>
+
             <WorkPlace>
               <a
                 target="_blank"
@@ -476,12 +511,12 @@ const ResumePage = () => {
               <div>
                 <div className="company-label">
                   <h3 className="company">Gorillas.dev</h3>
-                  <span className="company-full-time">{calculateDuration(new Date("2022-12-01"), new Date())}</span>
+                  <span className="company-full-time">{calculateDuration(new Date("2022-12-01"), new Date("2023-05-29"))}</span>
                 </div>
 
                 <div className="positions">
                   <h4 className="position">Frontend Developer</h4>
-                  <span className="dates">Dec 2022 - Present</span>
+                  <span className="dates">Dec 2022 - May 2023</span>
                   <ul>
                     <li>
                       Building complete React x Redux application with REST API.
