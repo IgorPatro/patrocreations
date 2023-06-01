@@ -471,8 +471,8 @@ const ResumePage = () => {
                     </li>
                   </ul>
 
-                  <h4 className="position">CTO</h4>
-                  <span className="dates">May 2022 - Present</span>
+                  <h4 className="position">Fullstack Developer</h4>
+                  <span className="dates">May 2022 - Dec 2022</span>
                   <ul>
                     <li>
                       Created Cloud architecture for the company, including
