@@ -48,6 +48,9 @@
     "gatsby-plugin-root-import": "^2.0.6",
     "prettier": "^2.2.1"
   },
+    "resolutions": {
+    "sharp": "^0.29.0"
+  },
   "scripts": {
     "dev": "gatsby develop",
     "start": "gatsby clean && gatsby develop",

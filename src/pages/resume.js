@@ -279,9 +279,7 @@ const ResumePage = () => {
   }
 
   const logos = {
-    redvike: data.allFile.edges.find((el) =>
-      el.node.name.includes("redvike")
-    ),
+    redvike: data.allFile.edges.find((el) => el.node.name.includes("redvike")),
     gorillas: data.allFile.edges.find((el) =>
       el.node.name.includes("gorillas")
     ),
@@ -420,7 +418,20 @@ const ResumePage = () => {
                   <span className="dates">June 2023 - Present</span>
                   <ul>
                     <li>
-                      Building Next.js applications.
+                      Developing interactive and efficient features within an
+                      application built on the Next.js, Tailwind, and React
+                      Query stack.
+                    </li>
+                    <li>
+                      Collaborating closely with UX/UI Designers and Business
+                      Analysts to deliver an unparalleled user experience.
+                    </li>
+                    <li>
+                      Engaging in active cooperation with Backend Developers to
+                      ensure seamless integration and functionality.
+                    </li>
+                    <li>
+                      Designing and implementing a user-centric UI architecture.
                     </li>
                   </ul>
                 </div>
@@ -443,13 +454,16 @@ const ResumePage = () => {
                 <div className="company-label">
                   <h3 className="company">ModernityCloud</h3>
                   <span className="company-full-time">
-                    {calculateDuration(new Date("2022-05-01"), new Date())}
+                    {calculateDuration(
+                      new Date("2022-05-01"),
+                      new Date("2023-06.01")
+                    )}
                   </span>
                 </div>
 
                 <div className="positions">
                   <h4 className="position">Co-Founder</h4>
-                  <span className="dates">May 2022 - Present</span>
+                  <span className="dates">May 2022 - June 2023</span>
                   <ul>
                     <li>
                       Taking active part in company strategy and planning,
@@ -511,7 +525,12 @@ const ResumePage = () => {
               <div>
                 <div className="company-label">
                   <h3 className="company">Gorillas.dev</h3>
-                  <span className="company-full-time">{calculateDuration(new Date("2022-12-01"), new Date("2023-05-29"))}</span>
+                  <span className="company-full-time">
+                    {calculateDuration(
+                      new Date("2022-12-01"),
+                      new Date("2023-05-29")
+                    )}
+                  </span>
                 </div>
 
                 <div className="positions">
@@ -554,7 +573,12 @@ const ResumePage = () => {
               <div>
                 <div className="company-label">
                   <h3 className="company">DreamStorm Studios</h3>
-                  <span className="company-full-time">{calculateDuration(new Date("2021-05-01"), new Date("2022-11-01"))}</span>
+                  <span className="company-full-time">
+                    {calculateDuration(
+                      new Date("2021-05-01"),
+                      new Date("2022-11-01")
+                    )}
+                  </span>
                 </div>
 
                 <div className="positions">
@@ -644,7 +668,12 @@ const ResumePage = () => {
               <div>
                 <div className="company-label">
                   <h3 className="company">SkyAgency 360</h3>
-                  <span className="company-full-time">{calculateDuration(new Date("2021-02-01"), new Date("2021-08-01"))}</span>
+                  <span className="company-full-time">
+                    {calculateDuration(
+                      new Date("2021-02-01"),
+                      new Date("2021-08-01")
+                    )}
+                  </span>
                 </div>
 
                 <div className="positions">
@@ -681,7 +710,12 @@ const ResumePage = () => {
               <div>
                 <div className="company-label">
                   <h3 className="company">Patrocreations</h3>
-                  <span className="company-full-time">{calculateDuration(new Date("2020-04-01"), new Date("2022-05-01"))}</span>
+                  <span className="company-full-time">
+                    {calculateDuration(
+                      new Date("2020-04-01"),
+                      new Date("2022-05-01")
+                    )}
+                  </span>
                 </div>
 
                 <div className="positions">

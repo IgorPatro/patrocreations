@@ -71,7 +71,7 @@ const AboutPage = () => {
           id
         }
       }
-      file(name: { eq: "igor" }) {
+      file(name: { eq: "igor_rome" }) {
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid_tracedSVG
@@ -97,7 +97,7 @@ const AboutPage = () => {
             <div css={contentWrapper}>
               <AboutParagraph
                 content={{
-                  title: "Hi there!",
+                  title: "Hi!",
                   subtitleNode: {
                     childMarkdownRemark: {
                       html: "<h4>Who <strong>am</strong> I?</h4>",
@@ -105,9 +105,7 @@ const AboutPage = () => {
                   },
                   contentNode: {
                     childMarkdownRemark: {
-                      html: `<p>I'm a passionate <strong>Frontend Developer</strong> and I love building things. Programming is my <strong>greatest passion</strong> as it gives me an enormous amout of joy 😁 </br>
-                      Everything started at the Junior High School where I finally made the decision and started learning <strong>web development</strong>.
-                      </br> Over the years I have been working with many different people and companies. I  was always wondering how is it to be an entreprenur so I founded <a href="https://modernitycloud.pl">ModernityCloud</a> agency 😍 </p>`,
+                      html: `<p>I'm a developer who thrives on <strong>challenges</strong> 🙏 From an early age, I found <strong>joy</strong> in building things. Early in my <strong>career</strong>, I’ve built a lot of <strong>websites</strong> (some of which you can view here). However, I quickly desired to build more <strong>complex</strong> projects within larger <strong>teams</strong>. That's how my journey with <strong><a target="_blank" href="https://dreamstormstudios.com">DreamStorm Studios</a></strong> ❤️ began. Over the years, I worked across various <strong>teams</strong> and multiple projects. I also tried building my first organized company (<a target="_blank" href="https://modernitycloud.pl">ModernityCloud</a>). Currently, I work as a <strong>Frontend Engineer</strong> at <a target="_blank" href="https://redvike.com">Redvike</a>. In my spare time, I leverage the <strong>experience</strong> I've gained throughout my career to build <strong>top-notch</strong> websites! I also love <strong>travelling</strong> ✈️`,
                     },
                   },
                   index: false,
