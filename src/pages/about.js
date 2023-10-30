@@ -71,7 +71,7 @@ const AboutPage = () => {
           id
         }
       }
-      file(name: { eq: "igor_rome" }) {
+      file(name: { eq: "igor_coffee" }) {
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid_tracedSVG
