@@ -242,7 +242,7 @@ const techLogo = css`
 const ResumePage = () => {
   const data = useStaticQuery(graphql`
     query ResumePageData {
-      file(name: { eq: "avatar" }) {
+      file(name: { eq: "avatar_2" }) {
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid_tracedSVG
@@ -301,6 +301,9 @@ const ResumePage = () => {
       el.node.name.includes("dreamgame")
     ),
     tmb: data.allFile.edges.find((el) => el.node.name.includes("tmb")),
+    charterstock: data.allFile.edges.find((el) =>
+      el.node.name.includes("charterstock")
+    ),
   }
 
   const techs = data.allFile.edges.filter((el) => el.node.name.includes("tech"))
@@ -423,8 +426,10 @@ const ResumePage = () => {
                       Query stack.
                     </li>
                     <li>
-                      Collaborating closely with UX/UI Designers and Business
-                      Analysts to deliver an unparalleled user experience.
+                      Collaborated closely with designers and business analysts
+                      to develop a long-term vision for projects, ensuring that
+                      the end-product not only meets current user needs but is
+                      also adaptable to future market trends and requirements.
                     </li>
                     <li>
                       Engaging in active cooperation with Backend Developers to
@@ -432,6 +437,12 @@ const ResumePage = () => {
                     </li>
                     <li>
                       Designing and implementing a user-centric UI architecture.
+                    </li>
+                    <li>
+                      Estimating tasks with accuracy, considering factors such
+                      as project complexity, dependencies, and potential
+                      roadblocks, to ensure timely delivery of project
+                      components.
                     </li>
                   </ul>
                 </div>
@@ -739,6 +750,65 @@ const ResumePage = () => {
 
           <div css={employmentWrapper}>
             <h1 css={sectionTitle}>Projects</h1>
+
+            <Project>
+              <a
+                target="_blank"
+                rel="noindex nofollow noreferrer"
+                href="https://www.charterstock.com/"
+              >
+                <Img
+                  objectFit="contain"
+                  className="logo"
+                  fluid={logos.charterstock.node.childImageSharp.fluid}
+                />
+              </a>
+              <div>
+                <div className="project-label">
+                  <h3 className="project">Charterstock</h3>
+                  <span className="project-full-time">6 mos</span>
+                </div>
+
+                <div className="description">
+                  <p>
+                    The platform offers an effortless rental experience,
+                    bridging the gap between sea adventurers and an expansive
+                    selection of vessels at market-friendly prices. It boasts
+                    immediate booking capabilities, fortified payment
+                    transactions, and unwavering customer assistance,
+                    simplifying the journey from the scenic docks of Ibiza to
+                    the open waters.
+                  </p>
+
+                  <br />
+
+                  <p>
+                    Contribution as a <strong>Frontend Engineer</strong>:
+                  </p>
+
+                  <ul>
+                    <li>
+                      Developing new features/components in Next.js + Tailwind &
+                      React Query tech stack.
+                    </li>
+                    <li>Taking active part UX/UI designing process.</li>
+                    <li>
+                      Cooperating with Backend Developers and designing API
+                      architecture.
+                    </li>
+                    <li>
+                      Estimating tasks to ensure timely delivery of project
+                      components.
+                    </li>
+                    <li>
+                      Taking part in business analysis meetsings and discussing
+                      project requirements.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </Project>
+
             <Project>
               <a
                 target="_blank"
@@ -916,7 +986,7 @@ const ResumePage = () => {
               <div>
                 <div className="project-label">
                   <h3 className="project">TMB</h3>
-                  <span className="project-full-time">3 mos</span>
+                  <span className="project-full-time">6 mos</span>
                 </div>
 
                 <div className="description">
@@ -980,7 +1050,7 @@ const ResumePage = () => {
                     <a
                       target="_blank"
                       rel="noindex nofollow noreferrer"
-                      href="https://patrocreations.com/portfolio"
+                      href="https://patrocreations.com/portfolio_en.pdf"
                     >
                       <strong>here</strong>
                     </a>
@@ -990,11 +1060,11 @@ const ResumePage = () => {
             </Project>
           </div>
 
-          <div>
+          {/* <div>
             <h1 css={sectionTitle}>Education</h1>
 
             <p>Doesn&apos;t matter at all 🥱😛</p>
-          </div>
+          </div> */}
 
           <div css={techWrapper}>
             <h1 css={sectionTitle}>Tech Stack</h1>
