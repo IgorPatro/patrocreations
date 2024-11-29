@@ -6,7 +6,6 @@ import { Helmet } from "react-helmet"
 import Img from "gatsby-image/withIEPolyfill"
 import theme from "layout/theme"
 import email from "assets/email.svg"
-import phone from "assets/phone.svg"
 import location from "assets/location.svg"
 import github from "assets/github.svg"
 import linkedin from "assets/linkedin.svg"
@@ -348,15 +347,6 @@ const ResumePage = () => {
                 href="mailto:i.patro@wp.pl"
               >
                 i.patro@wp.pl
-              </a>
-            </ContactItem>
-            <ContactItem background={phone}>
-              <a
-                target="_blank"
-                rel="noindex nofollow noreferrer"
-                href="tel:+48785375312"
-              >
-                +48 785 375 312
               </a>
             </ContactItem>
             <ContactItem background={linkedin}>
