@@ -78,11 +78,12 @@ const ServicesPage = () => {
               index={0}
             >
               I craft modern, high-performance websites and web applications
-              tailored to your needs. Using cutting-edge technologies like
-              React.js, Node.js, and TypeScript, I ensure seamless user
-              experiences, fast loading times, and full scalability. Whether you
-              need a sleek landing page or a complex enterprise system, I bring
-              your vision to life.
+              tailored to your needs. Using cutting-edge technologies like{" "}
+              <strong>React.js, Node.js, and TypeScript</strong>, I ensure
+              seamless user experiences, fast loading times, and full
+              scalability. Whether you need a sleek{" "}
+              <strong>landing page</strong> or a complex enterprise system, I
+              bring your vision to life.
             </ServiceTile>
             <div css={smallServicesWrapper}>
               <ServiceTile
@@ -97,10 +98,10 @@ const ServicesPage = () => {
                 index={1}
               >
                 From idea to execution, I build mobile apps that stand out.
-                Whether it’s iOS or Android, I develop smooth, intuitive
-                applications that engage users and deliver outstanding
+                Whether it’s <strong>iOS or Android</strong>, I develop smooth,
+                intuitive applications that engage users and deliver outstanding
                 performance. My approach ensures seamless integration, security,
-                and a top-tier user experience.
+                and a top-tier <strong>user experience</strong>.
               </ServiceTile>
               <ServiceTile
                 title="Design"
@@ -113,11 +114,11 @@ const ServicesPage = () => {
                 ]}
                 index={2}
               >
-                Creativity meets functionality. I create stunning visuals and
-                brand identities from scratch, ensuring that your business
-                stands out. Whether it’s UI/UX, web design, or complete
-                branding, I focus on delivering designs that are not only
-                beautiful but also highly effective.
+                Creativity meets functionality. I create{" "}
+                <strong>stunning visuals</strong> and brand identities from
+                scratch, ensuring that your business stands out. Whether it’s
+                UI/UX, web design, or complete branding, I focus on delivering
+                designs that are not only beautiful but also highly effective.
               </ServiceTile>
               <ServiceTile
                 title="IT Audits"
@@ -130,10 +131,11 @@ const ServicesPage = () => {
                 ]}
                 index={3}
               >
-                I uncover inefficiencies and optimize your IT infrastructure
-                with expert audits. I analyze security, system performance, and
-                workflow automation to ensure your technology supports your
-                business goals efficiently and securely.
+                I uncover inefficiencies and optimize your{" "}
+                <strong>IT infrastructure</strong> with expert audits. I analyze
+                security, system performance, and workflow automation to ensure
+                your technology supports your business goals efficiently and
+                securely.
               </ServiceTile>
               <ServiceTile
                 title="Custom Development"
@@ -146,11 +148,12 @@ const ServicesPage = () => {
                 ]}
                 index={4}
               >
-                If you can dream it, I can build it. I specialize in tailor-made
-                software solutions across any technology—traditional coding and
-                no-code platforms like Zapier and Make.com. From workflow
-                automation to full-scale applications, I deliver efficient,
-                scalable, and innovative solutions for your business.
+                If you can dream it, I can build it. I specialize in{" "}
+                <strong>tailor-made</strong> software solutions across any
+                technology—traditional coding and no-code platforms like Zapier
+                and Make.com. From <strong>workflow automation</strong> to
+                full-scale applications, I deliver efficient, scalable, and
+                innovative solutions for your business.
               </ServiceTile>
             </div>
           </div>
