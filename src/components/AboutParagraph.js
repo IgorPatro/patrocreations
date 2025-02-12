@@ -27,8 +27,9 @@ const loadAboutParagraphFromLeft = keyframes`
 `
 
 const injectAnimation = ({ index }) => ({
-  animation: `${index % 2 === 0 ? loadAboutParagraphFromLeft : loadAboutParagraphFromRight
-    } 1s ease-in-out ${1 + index * 0.5}s forwards`,
+  animation: `${
+    index % 2 === 0 ? loadAboutParagraphFromLeft : loadAboutParagraphFromRight
+  } 1s ease-in-out ${1 + index * 0.5}s forwards`,
 })
 
 const StyledAboutParagraph = styled.article`
@@ -157,7 +158,7 @@ const wrapperStyles = (theme) => css`
   }
 `
 
-const resumeLink = (theme) => css`
+const servicesLink = (theme) => css`
   background-color: ${theme.colors.blue};
   color: white;
   border: none;
@@ -196,7 +197,9 @@ const AboutParagraph = ({ content }) => (
         __html: content.contentNode.childMarkdownRemark.html,
       }}
     />
-    <Link css={resumeLink} to="/resume">Resume</Link>
+    <Link css={servicesLink} to="/services">
+      Services
+    </Link>
   </StyledAboutParagraph>
 )
 

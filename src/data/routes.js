@@ -10,6 +10,11 @@ const routes = [
     description: "who I am",
   },
   {
+    name: "services",
+    path: "/services",
+    description: "what can I do",
+  },
+  {
     name: "portfolio",
     path: "/portfolio",
     description: "few projects",

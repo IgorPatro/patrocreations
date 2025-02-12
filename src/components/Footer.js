@@ -158,7 +158,7 @@ const Footer = () => {
     ...datoCmsBasicInformation.socialMedia,
     {
       linkName: "city",
-      linkContent: datoCmsBasicInformation.city,
+      linkContent: "Kraków, Poland",
       link: false,
       linkFooterDescription: "My city to meet",
     },

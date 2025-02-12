@@ -2,19 +2,27 @@
 
 # Patrocreations
 
-## Status: ````Running````
+## Status: `Running`
 
 ## Description
+
 My personal portfolio
 
 ## Demo link:
+
 Access this site at: [https://patrocreations.com](https://patrocreations.com)
 
 ## Technologies
+
 - Gatsby
 - @emotion
 
-## Setup 
+## NODE version
+
+v16.18.1 is recommended
+
+## Setup
+
 ```bash
 ## Setup and run app
 - run 'yarn'
@@ -28,5 +36,3 @@ Access this site at: [https://patrocreations.com](https://patrocreations.com)
 - serve # serving production build
 - clean # cleaning cache
 ```
-
-
