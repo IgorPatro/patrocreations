@@ -15,10 +15,10 @@ jobs:
       - name: Fetch LFS assets
         run: git lfs checkout
 
-      - name: Use Node.js 15.8.0
+      - name: Use Node.js 16.18.1
         uses: actions/setup-node@v2-beta
         with:
-          node-version: "15.8.0"
+          node-version: "16.18.1"
 
       - name: Create env file
         run: |

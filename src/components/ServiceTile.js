@@ -75,7 +75,7 @@ const serviceTileWrapperHuge = (theme) => css`
   }
 `
 
-const serviceTileInnerWrapper = (theme) => css`
+const serviceTileInnerWrapper = () => css`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -95,36 +95,8 @@ const header = (theme) => css`
   }
 `
 
-const headingOne = (theme) => css`
+const headingOne = () => css`
   font-size: 2.1rem;
-  max-width: 80%;
-`
-
-const headingTwo = (theme) => css`
-  font-size: 1.8rem;
-`
-
-const statsWrapper = (theme) => css`
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-`
-
-const statWrapper = (theme) => css`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-`
-
-const statNumber = (theme) => css`
-  color: #04bcff;
-  font-size: 2.2rem;
-  font-weight: 600;
-`
-
-const statDescription = (theme) => css`
-  font-size: 1.5rem;
-  line-height: 1.5em;
   max-width: 80%;
 `
 
@@ -148,13 +120,13 @@ const link = (theme) => css`
   }
 `
 
-const paragraph = (theme) => css`
+const paragraph = () => css`
   font-size: 1.6rem;
   color: #818181;
   line-height: 1.9em;
 `
 
-const list = (theme) => css`
+const list = () => css`
   font-size: 1.6rem;
   color: #818181;
   line-height: 1.9em;
@@ -220,6 +192,10 @@ ServiceTile.propTypes = {
   huge: PropTypes.bool,
   features: PropTypes.arrayOf(PropTypes.string).isRequired,
   index: PropTypes.number.isRequired,
+}
+
+ServiceTile.defaultProps = {
+  huge: false,
 }
 
 export default ServiceTile
