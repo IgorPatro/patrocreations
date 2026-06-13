@@ -37,7 +37,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
           SOURCE: "public/"
-          REMOTE_HOST: "s147.cyber-folks.pl"
-          REMOTE_PORT: "222"
-          REMOTE_USER: ${{ secrets.SSH_USERNAME }}
-          TARGET: "/home/webing05/domains/patrocreations.com/public_html"
+          REMOTE_HOST: "h81.seohost.pl"
+          REMOTE_PORT: "57185"
+          REMOTE_USER: "srv116488"
+          TARGET: "/home/srv116488/domains/igorpatro.com/public_html"
